@@ -70,7 +70,7 @@
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
             <a href="<?= base_url('') ?>" class="brand-link">
-                <img src="" alt="Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+                <img src="<?= base_url() ?>/assets/sma.png" alt="Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light">Sistem Presensi</span>
             </a>
 
@@ -117,31 +117,37 @@
                             </a>
                             <ul class="nav nav-treeview rounded bg-secondary">
                                 <li class="nav-item">
-                                    <a href="<?= base_url('jurusan') ?>" class="nav-link">
+                                    <a href="<?= base_url('siswa') ?>" class="nav-link">
                                         <i class="nav-icon fas fa-people-carry"></i>
                                         <p>Siswa</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="<?= base_url('lampiran') ?>" class="nav-link">
+                                    <a href="<?= base_url('mapel') ?>" class="nav-link">
                                         <i class="nav-icon fas fa-file-archive"></i>
                                         <p>Mata Pelajaran</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="<?= base_url('pekerjaan') ?>" class="nav-link">
+                                    <a href="<?= base_url('guru') ?>" class="nav-link">
                                         <i class="nav-icon fas fa-briefcase"></i>
                                         <p>Guru</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="<?= base_url('pendidikan') ?>" class="nav-link">
+                                    <a href="<?= base_url('kelas') ?>" class="nav-link">
+                                        <i class="nav-icon fas fa-graduation-cap"></i>
+                                        <p>Kelas</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a href="<?= base_url('wali_kelas') ?>" class="nav-link">
                                         <i class="nav-icon fas fa-graduation-cap"></i>
                                         <p>Wali Kelas</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="<?= base_url('agama') ?>" class="nav-link">
+                                    <a href="<?= base_url('Tahun_ajar') ?>" class="nav-link">
                                         <i class="nav-icon fas fa-mosque"></i>
                                         <p>Tahun Ajaran</p>
                                     </a>
