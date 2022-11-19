@@ -86,18 +86,6 @@
                     </div>
                 </div>
 
-                <!-- SidebarSearch Form -->
-                <div class="form-inline">
-                    <div class="input-group" data-widget="sidebar-search">
-                        <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-                        <div class="input-group-append">
-                            <button class="btn btn-sidebar">
-                                <i class="fas fa-search fa-fw"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -118,37 +106,37 @@
                             <ul class="nav nav-treeview rounded bg-secondary">
                                 <li class="nav-item">
                                     <a href="<?= base_url('siswa') ?>" class="nav-link">
-                                        <i class="nav-icon fas fa-people-carry"></i>
+                                        <i class="nav-icon fas fa-user-graduate"></i>
                                         <p>Siswa</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="<?= base_url('mapel') ?>" class="nav-link">
-                                        <i class="nav-icon fas fa-file-archive"></i>
+                                        <i class="nav-icon fas fa-book-open"></i>
                                         <p>Mata Pelajaran</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="<?= base_url('guru') ?>" class="nav-link">
-                                        <i class="nav-icon fas fa-briefcase"></i>
+                                        <i class="nav-icon fas fa-chalkboard-teacher"></i>
                                         <p>Guru</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="<?= base_url('kelas') ?>" class="nav-link">
-                                        <i class="nav-icon fas fa-graduation-cap"></i>
+                                        <i class="nav-icon fas fa-school"></i>
                                         <p>Kelas</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="<?= base_url('wali_kelas') ?>" class="nav-link">
-                                        <i class="nav-icon fas fa-graduation-cap"></i>
+                                        <i class="nav-icon fas fa-user-tie"></i>
                                         <p>Wali Kelas</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
                                     <a href="<?= base_url('Tahun_ajar') ?>" class="nav-link">
-                                        <i class="nav-icon fas fa-mosque"></i>
+                                        <i class="nav-icon fas fa-graduation-cap"></i>
                                         <p>Tahun Ajaran</p>
                                     </a>
                                 </li>
@@ -174,7 +162,7 @@
                                 <li class="nav-item">
                                     <a href="<?= base_url('ppdb/listDiterima') ?>" class="nav-link">
                                         <i class="nav-icon fa fa-user-check"></i>
-                                        <p>UTS</p>
+                                        <p>UAS</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
