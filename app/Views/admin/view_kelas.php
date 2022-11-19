@@ -44,6 +44,8 @@
                         <th width="70px">#</th>
                         <th>Kode Kelas</th>
                         <th>Kelas</th>
+                        <th>Wali Kelas</th>
+                        <th>Tahun Ajaran</th>
                         <th width="100px">Action</th>
                     </tr>
                 </thead>
@@ -54,6 +56,8 @@
                             <td><?= $no++ ?></td>
                             <td><?= $value['kelas_kode'] ?></td>
                             <td><?= $value['kelas_nama'] ?></td>
+                            <td><?= $value['wali_kelas'] ?></td>
+                            <td><?= $value['tahun_ajaran'] ?></td>
                             <td>
                                 <button class="btn btn-xs btn-flat btn-warning" data-toggle="modal" data-target="#edit<?= $value['kelas_id'] ?>">
                                     <i class="fas fa-pen"></i>
@@ -90,6 +94,24 @@
                     <label>kelas</label>
                     <input name="kelas_nama" class="form-control" placeholder="kelas_nama" required>
                 </div>
+                <div class="form-group">
+                    <label>Wali Kelas</label>
+                    <select name="wali_kelas" class="form-control">
+                        <option value="">--Pilih Wali Kelas--</option>
+                        <?php foreach ($w_kelas as $value) : ?>
+                            <option value="<?= $value['guru_id'] ?>"><?= $value['guru_nama'] ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Tahun Ajaran</label>
+                    <select name="tahun_ajaran" class="form-control">
+                        <option value="">--Pilih Tahun Ajaran--</option>
+                        <?php foreach ($tahun_ajar as $value) : ?>
+                            <option value="<?= $value['th_id'] ?>"><?= $value['th_ajaran'] ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
             </div>
             <div class="modal-footer justify-content-between">
                 <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Tutup</button>
@@ -123,6 +145,24 @@
                     <div class="form-group">
                         <label>kelas</label>
                         <input name="kelas_nama" class="form-control" value="<?= $value['kelas_nama'] ?>" placeholder="kelas_nama" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Wali Kelas</label>
+                        <select name="wali_kelas" class="form-control">
+                            <option value="">--Pilih Wali Kelas--</option>
+                            <?php foreach ($w_kelas as $value) : ?>
+                                <option value="<?= $value['guru_id'] ?>"><?= $value['guru_nama'] ?></option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Tahun Ajaran</label>
+                        <select name="tahun_ajaran" class="form-control">
+                            <option value="">--Pilih Tahun Ajaran--</option>
+                            <?php foreach ($tahun_ajar as $value) : ?>
+                                <option value="<?= $value['th_id'] ?>"><?= $value['th_ajaran'] ?></option>
+                            <?php endforeach; ?>
+                        </select>
                     </div>
                 </div>
                 <div class="modal-footer justify-content-between">

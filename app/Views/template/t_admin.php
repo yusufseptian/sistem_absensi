@@ -129,12 +129,6 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="<?= base_url('wali_kelas') ?>" class="nav-link">
-                                        <i class="nav-icon fas fa-user-tie"></i>
-                                        <p>Wali Kelas</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
                                     <a href="<?= base_url('Tahun_ajar') ?>" class="nav-link">
                                         <i class="nav-icon fas fa-graduation-cap"></i>
                                         <p>Tahun Ajaran</p>
