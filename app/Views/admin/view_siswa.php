@@ -2,6 +2,10 @@
 <?= $this->section('content') ?>
 
 <div class="col-sm">
+    <button class="btn btn-sm btn-dark mb-2" data-toggle="modal" data-target="#filter">
+        <i class="fa fa-filter"></i> Filter Data
+    </button>
+
     <div class="card card-primary">
         <div class="card-header">
             <h3 class="card-title">Daftar <?= $subtitle ?></h3>
@@ -38,6 +42,7 @@
                 echo '</h6></div>';
             }
             ?>
+
             <table class="table table-sm">
                 <thead>
                     <tr>
@@ -263,5 +268,31 @@
     </div>
     <!-- /.modal -->
 <?php } ?>
+
+<!-- modal filter -->
+<div class="modal fade" id="filter">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-dark">
+                <h4 class="modal-title">Filter Data Siswa</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <button class="btn btn-sm btn-success">Kelas 10</button>
+                <button class="btn btn-sm btn-warning">Kelas 11</button>
+                <button class="btn btn-sm btn-danger">Kelas 12</button>
+            </div>
+            <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Tutup</button>
+                <a href="" class="btn btn-dark btn-sm">Terapkan</a>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
 
 <?= $this->endSection() ?>

@@ -32,7 +32,7 @@
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="<?= base_url('admin') ?>" class="nav-link">Home</a>
+                    <a href="<?= base_url('home') ?>" class="nav-link">Home</a>
                 </li>
             </ul>
 
@@ -40,7 +40,7 @@
             <ul class="navbar-nav ml-auto">
                 <!-- Navbar Search -->
                 <li class="nav-item">
-                    <a class="nav-link" href="<?= base_url('auth/logout') ?>">
+                    <a class="nav-link" href="<?= base_url('login') ?>">
                         <i class="fa fa-sign-out-alt"></i> Logout
                     </a>
                     <div class="navbar-search-block">
@@ -90,7 +90,7 @@
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <li class="nav-item">
-                            <a href="<?= base_url('admin') ?>" class="nav-link">
+                            <a href="<?= base_url('home') ?>" class="nav-link">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>Dashboard</p>
                             </a>
@@ -135,7 +135,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="<?= base_url('Tahun_ajar') ?>" class="nav-link">
+                                    <a href="<?= base_url('tahun_ajaran') ?>" class="nav-link">
                                         <i class="nav-icon fas fa-graduation-cap"></i>
                                         <p>Tahun Ajaran</p>
                                     </a>
@@ -154,20 +154,20 @@
                             </a>
                             <ul class="nav nav-treeview rounded bg-secondary">
                                 <li class="nav-item">
-                                    <a href="<?= base_url('ppdb') ?>" class="nav-link">
-                                        <i class="nav-icon fas fa-folder-open"></i>
+                                    <a href="<?= base_url('') ?>" class="nav-link">
+                                        <i class="nav-icon fas fa-file"></i>
                                         <p>UTS</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="<?= base_url('ppdb/listDiterima') ?>" class="nav-link">
-                                        <i class="nav-icon fa fa-user-check"></i>
+                                    <a href="<?= base_url('') ?>" class="nav-link">
+                                        <i class="nav-icon fa fa-file"></i>
                                         <p>UAS</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="<?= base_url('ppdb/listDitolak') ?>" class="nav-link">
-                                        <i class="nav-icon fa fa-user-slash"></i>
+                                    <a href="<?= base_url('') ?>" class="nav-link">
+                                        <i class="nav-icon fa fa-door-open"></i>
                                         <p>Ruang Ujian</p>
                                     </a>
                                 </li>
