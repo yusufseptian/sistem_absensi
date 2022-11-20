@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 13 Nov 2022 pada 17.07
+-- Waktu pembuatan: 19 Nov 2022 pada 19.54
 -- Versi server: 10.4.24-MariaDB
 -- Versi PHP: 8.1.6
 
@@ -57,6 +57,8 @@ CREATE TABLE `tb_kelas` (
   `kelas_id` int(11) NOT NULL,
   `kelas_kode` varchar(50) NOT NULL,
   `kelas_nama` varchar(100) NOT NULL,
+  `wali_kelas` int(11) NOT NULL,
+  `tahun_ajaran` int(11) NOT NULL,
   `created_by` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -64,9 +66,9 @@ CREATE TABLE `tb_kelas` (
 -- Dumping data untuk tabel `tb_kelas`
 --
 
-INSERT INTO `tb_kelas` (`kelas_id`, `kelas_kode`, `kelas_nama`, `created_by`) VALUES
-(1, 'a123', '11Mipa5', 0),
-(2, 's112', '12IPS3', 0);
+INSERT INTO `tb_kelas` (`kelas_id`, `kelas_kode`, `kelas_nama`, `wali_kelas`, `tahun_ajaran`, `created_by`) VALUES
+(3, 'a123', '11Mipa5', 2, 0, 0),
+(4, 'a124', '12Mipa5', 2, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -160,6 +162,13 @@ CREATE TABLE `tb_siswa` (
   `created_by` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data untuk tabel `tb_siswa`
+--
+
+INSERT INTO `tb_siswa` (`siswa_id`, `siswa_nis`, `siswa_nama`, `siswa_tempat_lahir`, `siswa_tgl_lahir`, `siswa_jk`, `siswa_alamat`, `siswa_foto`, `siswa_th_angkatan`, `siswa_id_kelas`, `created_by`) VALUES
+(7, '5190411039', 'Yusuf Septian', 'semarang', '2022-11-20', 'Laki-Laki', 'mtl', '1668882955_0bce8c1f6402bac9cc1e.jpg', 2019, 3, 0);
+
 -- --------------------------------------------------------
 
 --
@@ -169,7 +178,6 @@ CREATE TABLE `tb_siswa` (
 CREATE TABLE `tb_tahun_ajaran` (
   `th_id` int(11) NOT NULL,
   `th_ajaran` varchar(100) NOT NULL,
-  `status` int(11) NOT NULL,
   `created_by` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -177,9 +185,9 @@ CREATE TABLE `tb_tahun_ajaran` (
 -- Dumping data untuk tabel `tb_tahun_ajaran`
 --
 
-INSERT INTO `tb_tahun_ajaran` (`th_id`, `th_ajaran`, `status`, `created_by`) VALUES
-(1, '2022/2023', 0, 0),
-(2, '2020/2021', 1, 0);
+INSERT INTO `tb_tahun_ajaran` (`th_id`, `th_ajaran`, `created_by`) VALUES
+(1, '2022/2023', 0),
+(2, '2020/2021', 0);
 
 -- --------------------------------------------------------
 
@@ -209,7 +217,8 @@ ALTER TABLE `tb_guru`
 --
 ALTER TABLE `tb_kelas`
   ADD PRIMARY KEY (`kelas_id`),
-  ADD KEY `created_by` (`created_by`);
+  ADD KEY `created_by` (`created_by`),
+  ADD KEY `wali_kelas` (`wali_kelas`);
 
 --
 -- Indeks untuk tabel `tb_mapel`
@@ -279,7 +288,7 @@ ALTER TABLE `tb_guru`
 -- AUTO_INCREMENT untuk tabel `tb_kelas`
 --
 ALTER TABLE `tb_kelas`
-  MODIFY `kelas_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `kelas_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_mapel`
@@ -309,7 +318,7 @@ ALTER TABLE `tb_semester`
 -- AUTO_INCREMENT untuk tabel `tb_siswa`
 --
 ALTER TABLE `tb_siswa`
-  MODIFY `siswa_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `siswa_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_tahun_ajaran`
@@ -326,6 +335,12 @@ ALTER TABLE `tb_wali_kelas`
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
+
+--
+-- Ketidakleluasaan untuk tabel `tb_kelas`
+--
+ALTER TABLE `tb_kelas`
+  ADD CONSTRAINT `tb_kelas_ibfk_1` FOREIGN KEY (`wali_kelas`) REFERENCES `tb_guru` (`guru_id`);
 
 --
 -- Ketidakleluasaan untuk tabel `tb_mengajar`

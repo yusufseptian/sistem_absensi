@@ -26,7 +26,6 @@ class Tahun_ajar extends BaseController
     {
         $data = [
             'th_ajaran' => $this->request->getPost('th_ajaran'),
-            'status' => $this->request->getPost('status'),
         ];
         $this->Model_tahun_ajar->insert($data);
         session()->setFlashdata('tambah', 'Data berhasil ditambahkan..!!');
@@ -37,7 +36,6 @@ class Tahun_ajar extends BaseController
     {
         $data = [
             'th_ajaran' => $this->request->getPost('th_ajaran'),
-            'status' => $this->request->getPost('status'),
         ];
         $this->Model_tahun_ajar->update($th_id, $data);
         session()->setFlashdata('edit', 'Data berhasil diedit..!!');

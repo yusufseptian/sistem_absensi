@@ -13,5 +13,5 @@ class Model_tahun_ajar extends Model
 
     protected $returnType     = 'array';
 
-    protected $allowedFields = ['th_id', 'th_ajaran', 'status'];
+    protected $allowedFields = ['th_id', 'th_ajaran'];
 }

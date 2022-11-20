@@ -17,5 +17,7 @@ class Model_kelas extends Model
         'kelas_id',
         'kelas_kode',
         'kelas_nama',
+        'wali_kelas',
+        'tahun_ajaran'
     ];
 }

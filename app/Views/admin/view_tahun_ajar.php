@@ -43,7 +43,6 @@
                     <tr>
                         <th width="70px">#</th>
                         <th>Tahun Ajaran</th>
-                        <th>Status</th>
                         <th width="100px">Action</th>
                     </tr>
                 </thead>
@@ -53,7 +52,6 @@
                         <tr>
                             <td><?= $no++ ?></td>
                             <td><?= $value['th_ajaran'] ?></td>
-                            <td><?= $value['status'] ?></td>
                             <td>
                                 <button class="btn btn-xs btn-flat btn-warning" data-toggle="modal" data-target="#edit<?= $value['th_id'] ?>">
                                     <i class="fas fa-pen"></i>
@@ -86,10 +84,7 @@
                     <label>Tahun Ajaran</label>
                     <input name="th_ajaran" class="form-control" placeholder="Tahun Ajaran" required>
                 </div>
-                <div class="form-group">
-                    <label>Status</label>
-                    <input name="status" class="form-control" placeholder="Status" required>
-                </div>
+
             </div>
             <div class="modal-footer justify-content-between">
                 <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Tutup</button>
@@ -120,10 +115,7 @@
                         <label>Tahun Ajaran</label>
                         <input name="th_ajaran" class="form-control" value="<?= $value['th_ajaran'] ?>" placeholder="Tahun Ajaran" required>
                     </div>
-                    <div class="form-group">
-                        <label>Status</label>
-                        <input name="status" class="form-control" value="<?= $value['status'] ?>" placeholder="Status" required>
-                    </div>
+
                 </div>
                 <div class="modal-footer justify-content-between">
                     <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Tutup</button>
