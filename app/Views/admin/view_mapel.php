@@ -38,7 +38,7 @@
                 echo '</h6></div>';
             }
             ?>
-            <table class="table table-sm">
+            <table class="table table-sm" id="mapelTables">
                 <thead>
                     <tr>
                         <th width="70px">#</th>
@@ -163,5 +163,11 @@
     </div>
     <!-- /.modal -->
 <?php } ?>
+
+<script>
+    $(document).ready(function() {
+        setDataTables("#mapelTables");
+    });
+</script>
 
 <?= $this->endSection() ?>

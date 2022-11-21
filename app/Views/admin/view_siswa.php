@@ -38,7 +38,7 @@
                 echo '</h6></div>';
             }
             ?>
-            <table class="table table-sm">
+            <table class="table table-sm" id="siswaTables">
                 <thead>
                     <tr>
                         <th width="70px">#</th>
@@ -263,5 +263,11 @@
     </div>
     <!-- /.modal -->
 <?php } ?>
+
+<script>
+    $(document).ready(function() {
+        setDataTables("#siswaTables");
+    });
+</script>
 
 <?= $this->endSection() ?>

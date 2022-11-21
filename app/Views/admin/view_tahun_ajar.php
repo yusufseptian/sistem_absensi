@@ -38,7 +38,7 @@
                 echo '</h6></div>';
             }
             ?>
-            <table class="table table-sm">
+            <table class="table table-sm" id="taTables">
                 <thead>
                     <tr>
                         <th width="70px">#</th>
@@ -155,5 +155,11 @@
     </div>
     <!-- /.modal -->
 <?php } ?>
+
+<script>
+    $(document).ready(function() {
+        setDataTables("#taTables");
+    });
+</script>
 
 <?= $this->endSection() ?>

@@ -14,10 +14,36 @@
     <link rel="stylesheet" href="<?= base_url() ?>/assets/dist/css/adminlte.min.css">
     <!-- Summernote -->
     <link rel="stylesheet" href="<?= base_url() ?>/assets/plugins/summernote/summernote-bs4.min.css">
+    <!-- jQuery -->
+    <script src="<?= base_url('assets') ?>/plugins/jquery/jquery.min.js"></script>
     <!-- DataTables -->
     <link rel="stylesheet" href="<?= base_url() ?>/assets/plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
     <link rel="stylesheet" href="<?= base_url() ?>/assets/plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
     <link rel="stylesheet" href="<?= base_url() ?>/assets/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
+
+    <!-- DataTables  & Plugins -->
+    <script src="<?= base_url('assets') ?>/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="<?= base_url('assets') ?>/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="<?= base_url('assets') ?>/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="<?= base_url('assets') ?>/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <script src="<?= base_url('assets') ?>/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="<?= base_url('assets') ?>/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+    <script src="<?= base_url('assets') ?>/plugins/jszip/jszip.min.js"></script>
+    <script src="<?= base_url('assets') ?>/plugins/pdfmake/pdfmake.min.js"></script>
+    <script src="<?= base_url('assets') ?>/plugins/pdfmake/vfs_fonts.js"></script>
+    <script src="<?= base_url('assets') ?>/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+    <script src="<?= base_url('assets') ?>/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+    <script src="<?= base_url('assets') ?>/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+    <script>
+        function setDataTables(selector) {
+            $(selector).DataTable({
+                "responsive": true,
+                "lengthChange": true,
+                "autoWidth": false,
+                "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+            }).buttons().container().appendTo(selector + '_wrapper .col-md-6:eq(0)');
+        }
+    </script>
 
 </head>
 
@@ -40,7 +66,7 @@
             <ul class="navbar-nav ml-auto">
                 <!-- Navbar Search -->
                 <li class="nav-item">
-                    <a class="nav-link" href="<?= base_url('auth/logout') ?>">
+                    <a class="nav-link" href="<?= base_url('login/logout') ?>">
                         <i class="fa fa-sign-out-alt"></i> Logout
                     </a>
                     <div class="navbar-search-block">
@@ -79,10 +105,10 @@
                 <!-- Sidebar user (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="<?= base_url('foto') ?>/<?= session()->get('foto') ?>" class="img-circle elevation-2">
+                        <img src="<?= base_url('foto_guru') ?>/<?= session('log_auth')['foto']; ?>" class="img-circle elevation-2">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block"><?= session()->get('nama_user') ?></a>
+                        <a href="#" class="d-block"><?= ucfirst(session('log_auth')['nama']); ?></a>
                     </div>
                 </div>
 
@@ -228,27 +254,12 @@
         <!-- </div> -->
         <!-- ./wrapper -->
 
-        <!-- jQuery -->
-        <script src="<?= base_url('assets') ?>/plugins/jquery/jquery.min.js"></script>
         <!-- Bootstrap 4 -->
         <script src="<?= base_url('assets') ?>/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
         <!-- AdminLTE App -->
         <script src="<?= base_url('assets') ?>/dist/js/adminlte.min.js"></script>
         <!-- Summernote -->
         <script src="<?= base_url('assets') ?>/plugins/summernote/summernote-bs4.min.js"></script>
-        <!-- DataTables  & Plugins -->
-        <script src="<?= base_url('assets') ?>/plugins/datatables/jquery.dataTables.min.js"></script>
-        <script src="<?= base_url('assets') ?>/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-        <script src="<?= base_url('assets') ?>/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-        <script src="<?= base_url('assets') ?>/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-        <script src="<?= base_url('assets') ?>/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
-        <script src="<?= base_url('assets') ?>/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
-        <script src="<?= base_url('assets') ?>/plugins/jszip/jszip.min.js"></script>
-        <script src="<?= base_url('assets') ?>/plugins/pdfmake/pdfmake.min.js"></script>
-        <script src="<?= base_url('assets') ?>/plugins/pdfmake/vfs_fonts.js"></script>
-        <script src="<?= base_url('assets') ?>/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
-        <script src="<?= base_url('assets') ?>/plugins/datatables-buttons/js/buttons.print.min.js"></script>
-        <script src="<?= base_url('assets') ?>/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 
         <script>
             $(function() {

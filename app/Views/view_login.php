@@ -23,20 +23,21 @@
 
 <body>
 
-    <div class="container">
-        <div class="vh-100 d-flex">
-            <div class="m-auto">
-                <div class="row">
-                    <div class="col-sm-5 m-auto">
-                        <img src="<?= base_url('assets/login.jpg') ?>" class="img-fluid pad">
-                    </div>
-                    <div class="col-sm-6 m-auto">
-                        <div class="card card-dark">
-                            <div class="card-header">
-                                <h3 class="card-title">Login</h3>
-                            </div>
-                            <div class="card-body">
-                                <!-- <div class="form-group">
+    <form action="<?= base_url('login/logauth'); ?>" method="post">
+        <div class="container">
+            <div class="vh-100 d-flex">
+                <div class="m-auto">
+                    <div class="row">
+                        <div class="col-sm-5 m-auto">
+                            <img src="<?= base_url('assets/login.jpg') ?>" class="img-fluid pad">
+                        </div>
+                        <div class="col-sm-6 m-auto">
+                            <div class="card card-dark">
+                                <div class="card-header">
+                                    <h3 class="card-title">Login</h3>
+                                </div>
+                                <div class="card-body">
+                                    <!-- <div class="form-group">
                                             <label>Role</label>
                                             <select name="role" class="form-control">
                                                 <option value="">--Pilih Jenis Role--</option>
@@ -45,22 +46,37 @@
                                                 <option value="3">Guru</option>
                                             </select>
                                         </div> -->
-                                <div class="form-group">
-                                    <label>Username</label>
-                                    <input name="username" value="" class="form-control" placeholder="Username">
+                                    <?php if ($validation->getError('username') || $validation->getError('password')) : ?>
+                                        <div class="form-group">
+                                            <div class="alert alert-danger" role="alert">
+                                                Username atau password tidak sesuai
+                                            </div>
+                                        </div>
+                                    <?php endif; ?>
+                                    <?php if (session('logFailed')) : ?>
+                                        <div class="form-group">
+                                            <div class="alert alert-danger" role="alert">
+                                                <?= session('logFailed') ?>
+                                            </div>
+                                        </div>
+                                    <?php endif; ?>
+                                    <div class="form-group">
+                                        <label>Username</label>
+                                        <input name="username" value="" class="form-control" placeholder="Username">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Password</label>
+                                        <input name="password" value="" type="password" class="form-control" placeholder="Password">
+                                    </div>
+                                    <button type="submit" class="btn btn-dark btn-block">Login</button>
                                 </div>
-                                <div class="form-group">
-                                    <label>Password</label>
-                                    <input name="password" value="" type="password" class="form-control" placeholder="Password">
-                                </div>
-                                <button type="submit" class="btn btn-dark btn-block">Login</button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
+    </form>
 
 
     <!-- jQuery -->
