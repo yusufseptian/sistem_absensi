@@ -58,7 +58,7 @@
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="<?= base_url('admin') ?>" class="nav-link">Home</a>
+                    <a href="<?= base_url('home') ?>" class="nav-link">Home</a>
                 </li>
             </ul>
 
@@ -66,24 +66,27 @@
             <ul class="navbar-nav ml-auto">
                 <!-- Navbar Search -->
                 <li class="nav-item">
-                    <a class="nav-link" href="<?= base_url('login/logout') ?>">
-                        <i class="fa fa-sign-out-alt"></i> Logout
-                    </a>
-                    <div class="navbar-search-block">
-                        <form class="form-inline">
-                            <div class="input-group input-group-sm">
-                                <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-                                <div class="input-group-append">
-                                    <button class="btn btn-navbar" type="submit">
-                                        <i class="fas fa-search"></i>
-                                    </button>
-                                    <button class="btn btn-navbar" type="button" data-widget="navbar-search">
-                                        <i class="fas fa-times"></i>
-                                    </button>
+                    <<<<<<< HEAD <a class="nav-link" href="<?= base_url('login/logout') ?>">
+                        =======
+                        <a class="nav-link" href="<?= base_url('login') ?>">
+                            >>>>>>> a4b1cbe03be37583a2fc8864b2733aa19688541e
+                            <i class="fa fa-sign-out-alt"></i> Logout
+                        </a>
+                        <div class="navbar-search-block">
+                            <form class="form-inline">
+                                <div class="input-group input-group-sm">
+                                    <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-navbar" type="submit">
+                                            <i class="fas fa-search"></i>
+                                        </button>
+                                        <button class="btn btn-navbar" type="button" data-widget="navbar-search">
+                                            <i class="fas fa-times"></i>
+                                        </button>
+                                    </div>
                                 </div>
-                            </div>
-                        </form>
-                    </div>
+                            </form>
+                        </div>
                 </li>
 
                 <!-- Messages Dropdown Menu -->
@@ -116,7 +119,7 @@
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <li class="nav-item">
-                            <a href="<?= base_url('admin') ?>" class="nav-link">
+                            <a href="<?= base_url('home') ?>" class="nav-link">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>Dashboard</p>
                             </a>
@@ -174,20 +177,20 @@
                             </a>
                             <ul class="nav nav-treeview rounded bg-secondary">
                                 <li class="nav-item">
-                                    <a href="<?= base_url('ppdb') ?>" class="nav-link">
-                                        <i class="nav-icon fas fa-folder-open"></i>
+                                    <a href="<?= base_url('') ?>" class="nav-link">
+                                        <i class="nav-icon fas fa-file"></i>
                                         <p>UTS</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="<?= base_url('ppdb/listDiterima') ?>" class="nav-link">
-                                        <i class="nav-icon fa fa-user-check"></i>
+                                    <a href="<?= base_url('') ?>" class="nav-link">
+                                        <i class="nav-icon fa fa-file"></i>
                                         <p>UAS</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="<?= base_url('ppdb/listDitolak') ?>" class="nav-link">
-                                        <i class="nav-icon fa fa-user-slash"></i>
+                                    <a href="<?= base_url('') ?>" class="nav-link">
+                                        <i class="nav-icon fa fa-door-open"></i>
                                         <p>Ruang Ujian</p>
                                     </a>
                                 </li>
@@ -210,109 +213,133 @@
                             <h5 class="m-0 mb-3"><?= $subtitle ?></h5>
                             <?= $this->renderSection('content') ?>
                         </div>
-                    </div><!-- /.container-fluid -->
+                    </div>
+                </div><!-- /.container-fluid -->
             </section>
 
             <!-- Main content -->
             <!-- <section class="content">
         <div class="card">
-          <div class="card-header">
+        <div class="card-header">
             <h3 class="card-title">Title</h3>
 
             <div class="card-tools">
-              <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                 <i class="fas fa-minus"></i>
-              </button>
-              <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
+            </button>
+            <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
                 <i class="fas fa-times"></i>
-              </button>
+            </button>
             </div>
-          </div>
-          <div class="card-body">
+        </div>
+        <div class="card-body">
             Start creating your amazing application!
-          </div>
-          <div class="card-footer">
+        </div>
+        <div class="card-footer">
             Footer
-          </div>
         </div>
-      </section> -->
         </div>
-        <!-- /.content-wrapper -->
+    </section> -->
+            <!-- </div> -->
+            <!-- /.content-wrapper -->
 
-        <!-- <footer class="main-footer">
+            <!-- <footer class="main-footer">
     <div class="float-right d-none d-sm-block">
-      <b>Version</b> 3.2.0
+    <b>Version</b> 3.2.0
     </div>
     <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
-  </footer> -->
+</footer> -->
 
-        <!-- Control Sidebar -->
-        <!-- <aside class="control-sidebar control-sidebar-dark"> -->
-        <!-- Control sidebar content goes here -->
-        <!-- </aside> -->
-        <!-- /.control-sidebar -->
-        <!-- </div> -->
-        <!-- ./wrapper -->
+            <!-- Control Sidebar -->
+            <!-- <aside class="control-sidebar control-sidebar-dark"> -->
+            <!-- Control sidebar content goes here -->
+            <!-- </aside> -->
+            <!-- /.control-sidebar -->
+            <!-- </div> -->
+            <!-- ./wrapper -->
 
-        <!-- Bootstrap 4 -->
-        <script src="<?= base_url('assets') ?>/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <!-- AdminLTE App -->
-        <script src="<?= base_url('assets') ?>/dist/js/adminlte.min.js"></script>
-        <!-- Summernote -->
-        <script src="<?= base_url('assets') ?>/plugins/summernote/summernote-bs4.min.js"></script>
+            <<<<<<< HEAD <!-- Bootstrap 4 -->
+                <script src="<?= base_url('assets') ?>/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+                <!-- AdminLTE App -->
+                <script src="<?= base_url('assets') ?>/dist/js/adminlte.min.js"></script>
+                <!-- Summernote -->
+                <script src="<?= base_url('assets') ?>/plugins/summernote/summernote-bs4.min.js"></script>
+                =======
+                <!-- jQuery -->
+                <script src="<?= base_url('assets') ?>/plugins/jquery/jquery.min.js"></script>
+                <!-- Bootstrap 4 -->
+                <script src="<?= base_url('assets') ?>/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+                <!-- AdminLTE App -->
+                <script src="<?= base_url('assets') ?>/dist/js/adminlte.min.js"></script>
+                <!-- Summernote -->
+                <script src="<?= base_url('assets') ?>/plugins/summernote/summernote-bs4.min.js"></script>
+                <!-- DataTables  & Plugins -->
+                <script src="<?= base_url('assets') ?>/plugins/datatables/jquery.dataTables.min.js"></script>
+                <script src="<?= base_url('assets') ?>/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+                <script src="<?= base_url('assets') ?>/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+                <script src="<?= base_url('assets') ?>/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+                <script src="<?= base_url('assets') ?>/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+                <script src="<?= base_url('assets') ?>/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+                <script src="<?= base_url('assets') ?>/plugins/jszip/jszip.min.js"></script>
+                <script src="<?= base_url('assets') ?>/plugins/pdfmake/pdfmake.min.js"></script>
+                <script src="<?= base_url('assets') ?>/plugins/pdfmake/vfs_fonts.js"></script>
+                <script src="<?= base_url('assets') ?>/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+                <script src="<?= base_url('assets') ?>/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+                <script src="<?= base_url('assets') ?>/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+                >>>>>>> a4b1cbe03be37583a2fc8864b2733aa19688541e
 
-        <script>
-            $(function() {
-                // Summernote
-                $('#summernote').summernote()
-            });
-        </script>
-
-        <script>
-            window.setTimeout(
-                function() {
-                    $(".alert").fadeTo(500, 0).slideUp(500, function() {
-                        $(this).remove;
+                <script>
+                    $(function() {
+                        // Summernote
+                        $('#summernote').summernote()
                     });
-                }, 1500);
-        </script>
+                </script>
 
-        <!-- tampil logo setting -->
-        <script>
-            function bacaGambar(input) {
-                if (input.files && input.files[0]) {
-                    var reader = new FileReader();
-                    reader.onload = function(e) {
-                        $('#gambar_load').attr('src', e.target.result)
+                <script>
+                    window.setTimeout(
+                        function() {
+                            $(".alert").fadeTo(500, 0).slideUp(500, function() {
+                                $(this).remove;
+                            });
+                        }, 1500);
+                </script>
+
+                <!-- tampil logo setting -->
+                <script>
+                    function bacaGambar(input) {
+                        if (input.files && input.files[0]) {
+                            var reader = new FileReader();
+                            reader.onload = function(e) {
+                                $('#gambar_load').attr('src', e.target.result)
+                            }
+                            reader.readAsDataURL(input.files[0]);
+                        }
                     }
-                    reader.readAsDataURL(input.files[0]);
-                }
-            }
 
-            $('#preview_gambar').change(function() {
-                bacaGambar(this);
-            });
-        </script>
+                    $('#preview_gambar').change(function() {
+                        bacaGambar(this);
+                    });
+                </script>
 
-        <script>
-            $(function() {
-                $("#example1").DataTable({
-                    "responsive": true,
-                    "lengthChange": true,
-                    "autoWidth": false,
-                    "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-                }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-                $('#example2').DataTable({
-                    "paging": true,
-                    "lengthChange": false,
-                    "searching": false,
-                    "ordering": true,
-                    "info": true,
-                    "autoWidth": false,
-                    "responsive": true,
-                });
-            });
-        </script>
+                <script>
+                    $(function() {
+                        $("#example1").DataTable({
+                            "responsive": true,
+                            "lengthChange": true,
+                            "autoWidth": false,
+                            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+                        }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+                        $('#example2').DataTable({
+                            "paging": true,
+                            "lengthChange": false,
+                            "searching": false,
+                            "ordering": true,
+                            "info": true,
+                            "autoWidth": false,
+                            "responsive": true,
+                        });
+                    });
+                </script>
 </body>
 
 </html>

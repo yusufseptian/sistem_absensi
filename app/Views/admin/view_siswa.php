@@ -2,6 +2,10 @@
 <?= $this->section('content') ?>
 
 <div class="col-sm">
+    <button class="btn btn-sm btn-dark mb-2" data-toggle="modal" data-target="#filter">
+        <i class="fa fa-filter"></i> Filter Data
+    </button>
+
     <div class="card card-primary">
         <div class="card-header">
             <h3 class="card-title">Daftar <?= $subtitle ?></h3>
@@ -38,47 +42,51 @@
                 echo '</h6></div>';
             }
             ?>
-            <table class="table table-sm" id="siswaTables">
-                <thead>
-                    <tr>
-                        <th width="70px">#</th>
-                        <th>NIS</th>
-                        <th>Nama</th>
-                        <th>Tempat Lahir</th>
-                        <th>Tanggal Lahir</th>
-                        <th>Jenis Kelamin</th>
-                        <th>Alamat</th>
-                        <th>Tahun Angkatan</th>
-                        <th>Kelas</th>
-                        <th width="100px">Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php $no = 1;
-                    foreach ($siswa as $key => $value) { ?>
-                        <tr>
-                            <td><?= $no++ ?></td>
-                            <td><?= $value['siswa_nis'] ?></td>
-                            <td><?= $value['siswa_nama'] ?></td>
-                            <td><?= $value['siswa_tempat_lahir'] ?></td>
-                            <td><?= $value['siswa_tgl_lahir'] ?></td>
-                            <td><?= $value['siswa_jk'] ?></td>
-                            <td><?= $value['siswa_alamat'] ?></td>
-                            <td><?= $value['siswa_th_angkatan'] ?></td>
-                            <td><?= $value['siswa_id_kelas'] ?></td>
+            <<<<<<< HEAD <table class="table table-sm" id="siswaTables">
+                =======
 
-                            <td>
-                                <button class="btn btn-xs btn-flat btn-warning" data-toggle="modal" data-target="#edit<?= $value['siswa_id'] ?>">
-                                    <i class="fas fa-pen"></i>
-                                </button>
-                                <button class="btn btn-xs btn-flat btn-danger" data-toggle="modal" data-target="#delete<?= $value['siswa_id'] ?>">
-                                    <i class="fas fa-trash"></i>
-                                </button>
-                            </td>
+                <table class="table table-sm">
+                    >>>>>>> a4b1cbe03be37583a2fc8864b2733aa19688541e
+                    <thead>
+                        <tr>
+                            <th width="70px">#</th>
+                            <th>NIS</th>
+                            <th>Nama</th>
+                            <th>Tempat Lahir</th>
+                            <th>Tanggal Lahir</th>
+                            <th>Jenis Kelamin</th>
+                            <th>Alamat</th>
+                            <th>Tahun Angkatan</th>
+                            <th>Kelas</th>
+                            <th width="100px">Action</th>
                         </tr>
-                    <?php } ?>
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        <?php $no = 1;
+                        foreach ($siswa as $key => $value) { ?>
+                            <tr>
+                                <td><?= $no++ ?></td>
+                                <td><?= $value['siswa_nis'] ?></td>
+                                <td><?= $value['siswa_nama'] ?></td>
+                                <td><?= $value['siswa_tempat_lahir'] ?></td>
+                                <td><?= $value['siswa_tgl_lahir'] ?></td>
+                                <td><?= $value['siswa_jk'] ?></td>
+                                <td><?= $value['siswa_alamat'] ?></td>
+                                <td><?= $value['siswa_th_angkatan'] ?></td>
+                                <td><?= $value['siswa_id_kelas'] ?></td>
+
+                                <td>
+                                    <button class="btn btn-xs btn-flat btn-warning" data-toggle="modal" data-target="#edit<?= $value['siswa_id'] ?>">
+                                        <i class="fas fa-pen"></i>
+                                    </button>
+                                    <button class="btn btn-xs btn-flat btn-danger" data-toggle="modal" data-target="#delete<?= $value['siswa_id'] ?>">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        <?php } ?>
+                    </tbody>
+                </table>
         </div>
     </div>
 </div>
@@ -245,10 +253,37 @@
     <!-- /.modal -->
 <?php } ?>
 
-<script>
+<<<<<<< HEAD <script>
     $(document).ready(function() {
-        setDataTables("#siswaTables");
+    setDataTables("#siswaTables");
     });
-</script>
+    </script>
+    =======
+    <!-- modal filter -->
+    <div class="modal fade" id="filter">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-dark">
+                    <h4 class="modal-title">Filter Data Siswa</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <button class="btn btn-sm btn-success">Kelas 10</button>
+                    <button class="btn btn-sm btn-warning">Kelas 11</button>
+                    <button class="btn btn-sm btn-danger">Kelas 12</button>
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Tutup</button>
+                    <a href="" class="btn btn-dark btn-sm">Terapkan</a>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+    >>>>>>> a4b1cbe03be37583a2fc8864b2733aa19688541e
 
-<?= $this->endSection() ?>
+    <?= $this->endSection() ?>
