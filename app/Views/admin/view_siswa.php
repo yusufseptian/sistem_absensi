@@ -38,7 +38,7 @@
                 echo '</h6></div>';
             }
             ?>
-            <table class="table table-sm">
+            <table class="table table-sm" id="siswaTables">
                 <thead>
                     <tr>
                         <th width="70px">#</th>
@@ -50,7 +50,6 @@
                         <th>Alamat</th>
                         <th>Tahun Angkatan</th>
                         <th>Kelas</th>
-                        <th class="text-center">Foto</th>
                         <th width="100px">Action</th>
                     </tr>
                 </thead>
@@ -67,9 +66,7 @@
                             <td><?= $value['siswa_alamat'] ?></td>
                             <td><?= $value['siswa_th_angkatan'] ?></td>
                             <td><?= $value['siswa_id_kelas'] ?></td>
-                            <td class="text-center">
-                                <img class="img-fluid shadow" src="<?= base_url('foto_siswa/' . $value['siswa_foto']) ?>" width="200px">
-                            </td>
+
                             <td>
                                 <button class="btn btn-xs btn-flat btn-warning" data-toggle="modal" data-target="#edit<?= $value['siswa_id'] ?>">
                                     <i class="fas fa-pen"></i>
@@ -140,14 +137,6 @@
                         <?php endforeach; ?>
                     </select>
                 </div>
-                <div class="form-group">
-                    <label>Foto siswa</label>
-                    <input id="preview_gambar" type="file" accept="image/*" name="siswa_foto" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <label>Preview</label><br>
-                    <img id="gambar_load" src="" width="200px">
-                </div>
             </div>
             <div class="modal-footer justify-content-between">
                 <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Tutup</button>
@@ -216,14 +205,6 @@
                             <?php endforeach; ?>
                         </select>
                     </div>
-                    <div class="form-group">
-                        <label>Ganti Foto Siswa</label>
-                        <input id="preview_gambar" type="file" accept="image/*" name="siswa_foto" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label>Preview</label><br>
-                        <img id="gambar_load" src="<?= base_url('foto_siswa/' . $value['siswa_foto']) ?>" width="200px">
-                    </div>
                 </div>
                 <div class="modal-footer justify-content-between">
                     <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Tutup</button>
@@ -263,5 +244,11 @@
     </div>
     <!-- /.modal -->
 <?php } ?>
+
+<script>
+    $(document).ready(function() {
+        setDataTables("#siswaTables");
+    });
+</script>
 
 <?= $this->endSection() ?>

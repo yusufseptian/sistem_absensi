@@ -21,7 +21,6 @@ class Model_siswa extends Model
         'siswa_tgl_lahir',
         'siswa_jk',
         'siswa_alamat',
-        'siswa_foto',
         'siswa_th_angkatan',
         'siswa_id_kelas',
     ];
