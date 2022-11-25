@@ -42,11 +42,8 @@
                 echo '</h6></div>';
             }
             ?>
-            <<<<<<< HEAD <table class="table table-sm" id="siswaTables">
-                =======
-
+            <table class="table table-sm" id="siswaTables">
                 <table class="table table-sm">
-                    >>>>>>> a4b1cbe03be37583a2fc8864b2733aa19688541e
                     <thead>
                         <tr>
                             <th width="70px">#</th>
@@ -253,37 +250,35 @@
     <!-- /.modal -->
 <?php } ?>
 
-<<<<<<< HEAD <script>
+<script>
     $(document).ready(function() {
-    setDataTables("#siswaTables");
+        setDataTables("#siswaTables");
     });
-    </script>
-    =======
-    <!-- modal filter -->
-    <div class="modal fade" id="filter">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header bg-dark">
-                    <h4 class="modal-title">Filter Data Siswa</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <button class="btn btn-sm btn-success">Kelas 10</button>
-                    <button class="btn btn-sm btn-warning">Kelas 11</button>
-                    <button class="btn btn-sm btn-danger">Kelas 12</button>
-                </div>
-                <div class="modal-footer justify-content-between">
-                    <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Tutup</button>
-                    <a href="" class="btn btn-dark btn-sm">Terapkan</a>
-                </div>
+</script>
+<!-- modal filter -->
+<div class="modal fade" id="filter">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-dark">
+                <h4 class="modal-title">Filter Data Siswa</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
-            <!-- /.modal-content -->
+            <div class="modal-body">
+                <button class="btn btn-sm btn-success">Kelas 10</button>
+                <button class="btn btn-sm btn-warning">Kelas 11</button>
+                <button class="btn btn-sm btn-danger">Kelas 12</button>
+            </div>
+            <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Tutup</button>
+                <a href="" class="btn btn-dark btn-sm">Terapkan</a>
+            </div>
         </div>
-        <!-- /.modal-dialog -->
+        <!-- /.modal-content -->
     </div>
-    <!-- /.modal -->
-    >>>>>>> a4b1cbe03be37583a2fc8864b2733aa19688541e
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
 
-    <?= $this->endSection() ?>
+<?= $this->endSection() ?>

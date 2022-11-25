@@ -215,129 +215,86 @@
                 </div><!-- /.container-fluid -->
             </section>
 
-            <!-- Main content -->
-            <!-- <section class="content">
-        <div class="card">
-        <div class="card-header">
-            <h3 class="card-title">Title</h3>
 
-            <div class="card-tools">
-            <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                <i class="fas fa-minus"></i>
-            </button>
-            <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-                <i class="fas fa-times"></i>
-            </button>
-            </div>
-        </div>
-        <div class="card-body">
-            Start creating your amazing application!
-        </div>
-        <div class="card-footer">
-            Footer
-        </div>
-        </div>
-    </section> -->
-            <!-- </div> -->
-            <!-- /.content-wrapper -->
+            <!-- Bootstrap 4 -->
+            <script src="<?= base_url('assets') ?>/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+            <!-- AdminLTE App -->
+            <script src="<?= base_url('assets') ?>/dist/js/adminlte.min.js"></script>
+            <!-- Summernote -->
+            <script src="<?= base_url('assets') ?>/plugins/summernote/summernote-bs4.min.js"></script>
+            <!-- jQuery -->
+            <script src="<?= base_url('assets') ?>/plugins/jquery/jquery.min.js"></script>
+            <!-- Bootstrap 4 -->
+            <script src="<?= base_url('assets') ?>/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+            <!-- AdminLTE App -->
+            <script src="<?= base_url('assets') ?>/dist/js/adminlte.min.js"></script>
+            <!-- Summernote -->
+            <script src="<?= base_url('assets') ?>/plugins/summernote/summernote-bs4.min.js"></script>
+            <!-- DataTables  & Plugins -->
+            <script src="<?= base_url('assets') ?>/plugins/datatables/jquery.dataTables.min.js"></script>
+            <script src="<?= base_url('assets') ?>/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+            <script src="<?= base_url('assets') ?>/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+            <script src="<?= base_url('assets') ?>/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+            <script src="<?= base_url('assets') ?>/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+            <script src="<?= base_url('assets') ?>/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+            <script src="<?= base_url('assets') ?>/plugins/jszip/jszip.min.js"></script>
+            <script src="<?= base_url('assets') ?>/plugins/pdfmake/pdfmake.min.js"></script>
+            <script src="<?= base_url('assets') ?>/plugins/pdfmake/vfs_fonts.js"></script>
+            <script src="<?= base_url('assets') ?>/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+            <script src="<?= base_url('assets') ?>/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+            <script src="<?= base_url('assets') ?>/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
 
-            <!-- <footer class="main-footer">
-    <div class="float-right d-none d-sm-block">
-    <b>Version</b> 3.2.0
-    </div>
-    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
-</footer> -->
+            <script>
+                $(function() {
+                    // Summernote
+                    $('#summernote').summernote()
+                });
+            </script>
 
-            <!-- Control Sidebar -->
-            <!-- <aside class="control-sidebar control-sidebar-dark"> -->
-            <!-- Control sidebar content goes here -->
-            <!-- </aside> -->
-            <!-- /.control-sidebar -->
-            <!-- </div> -->
-            <!-- ./wrapper -->
-
-            <<<<<<< HEAD <!-- Bootstrap 4 -->
-                <script src="<?= base_url('assets') ?>/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-                <!-- AdminLTE App -->
-                <script src="<?= base_url('assets') ?>/dist/js/adminlte.min.js"></script>
-                <!-- Summernote -->
-                <script src="<?= base_url('assets') ?>/plugins/summernote/summernote-bs4.min.js"></script>
-                =======
-                <!-- jQuery -->
-                <script src="<?= base_url('assets') ?>/plugins/jquery/jquery.min.js"></script>
-                <!-- Bootstrap 4 -->
-                <script src="<?= base_url('assets') ?>/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-                <!-- AdminLTE App -->
-                <script src="<?= base_url('assets') ?>/dist/js/adminlte.min.js"></script>
-                <!-- Summernote -->
-                <script src="<?= base_url('assets') ?>/plugins/summernote/summernote-bs4.min.js"></script>
-                <!-- DataTables  & Plugins -->
-                <script src="<?= base_url('assets') ?>/plugins/datatables/jquery.dataTables.min.js"></script>
-                <script src="<?= base_url('assets') ?>/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-                <script src="<?= base_url('assets') ?>/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-                <script src="<?= base_url('assets') ?>/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-                <script src="<?= base_url('assets') ?>/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
-                <script src="<?= base_url('assets') ?>/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
-                <script src="<?= base_url('assets') ?>/plugins/jszip/jszip.min.js"></script>
-                <script src="<?= base_url('assets') ?>/plugins/pdfmake/pdfmake.min.js"></script>
-                <script src="<?= base_url('assets') ?>/plugins/pdfmake/vfs_fonts.js"></script>
-                <script src="<?= base_url('assets') ?>/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
-                <script src="<?= base_url('assets') ?>/plugins/datatables-buttons/js/buttons.print.min.js"></script>
-                <script src="<?= base_url('assets') ?>/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
-                >>>>>>> a4b1cbe03be37583a2fc8864b2733aa19688541e
-
-                <script>
-                    $(function() {
-                        // Summernote
-                        $('#summernote').summernote()
-                    });
-                </script>
-
-                <script>
-                    window.setTimeout(
-                        function() {
-                            $(".alert").fadeTo(500, 0).slideUp(500, function() {
-                                $(this).remove;
-                            });
-                        }, 1500);
-                </script>
-
-                <!-- tampil logo setting -->
-                <script>
-                    function bacaGambar(input) {
-                        if (input.files && input.files[0]) {
-                            var reader = new FileReader();
-                            reader.onload = function(e) {
-                                $('#gambar_load').attr('src', e.target.result)
-                            }
-                            reader.readAsDataURL(input.files[0]);
-                        }
-                    }
-
-                    $('#preview_gambar').change(function() {
-                        bacaGambar(this);
-                    });
-                </script>
-
-                <script>
-                    $(function() {
-                        $("#example1").DataTable({
-                            "responsive": true,
-                            "lengthChange": true,
-                            "autoWidth": false,
-                            "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
-                        }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-                        $('#example2').DataTable({
-                            "paging": true,
-                            "lengthChange": false,
-                            "searching": false,
-                            "ordering": true,
-                            "info": true,
-                            "autoWidth": false,
-                            "responsive": true,
+            <script>
+                window.setTimeout(
+                    function() {
+                        $(".alert").fadeTo(500, 0).slideUp(500, function() {
+                            $(this).remove;
                         });
+                    }, 1500);
+            </script>
+
+            <!-- tampil logo setting -->
+            <script>
+                function bacaGambar(input) {
+                    if (input.files && input.files[0]) {
+                        var reader = new FileReader();
+                        reader.onload = function(e) {
+                            $('#gambar_load').attr('src', e.target.result)
+                        }
+                        reader.readAsDataURL(input.files[0]);
+                    }
+                }
+
+                $('#preview_gambar').change(function() {
+                    bacaGambar(this);
+                });
+            </script>
+
+            <script>
+                $(function() {
+                    $("#example1").DataTable({
+                        "responsive": true,
+                        "lengthChange": true,
+                        "autoWidth": false,
+                    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+                    $('#example2').DataTable({
+                        "paging": true,
+                        "lengthChange": false,
+                        "searching": false,
+                        "ordering": true,
+                        "info": true,
+                        "autoWidth": false,
+                        "responsive": true,
                     });
-                </script>
+                });
+            </script>
 </body>
 
 </html>
