@@ -66,10 +66,8 @@
             <ul class="navbar-nav ml-auto">
                 <!-- Navbar Search -->
                 <li class="nav-item">
-                    <<<<<<< HEAD <a class="nav-link" href="<?= base_url('login/logout') ?>">
-                        =======
+                    <a class="nav-link" href="<?= base_url('login/logout') ?>">
                         <a class="nav-link" href="<?= base_url('login') ?>">
-                            >>>>>>> a4b1cbe03be37583a2fc8864b2733aa19688541e
                             <i class="fa fa-sign-out-alt"></i> Logout
                         </a>
                         <div class="navbar-search-block">
