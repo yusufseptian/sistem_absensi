@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 19 Nov 2022 pada 19.54
+-- Waktu pembuatan: 28 Nov 2022 pada 18.06
 -- Versi server: 10.4.24-MariaDB
 -- Versi PHP: 8.1.6
 
@@ -45,7 +45,10 @@ CREATE TABLE `tb_guru` (
 --
 
 INSERT INTO `tb_guru` (`guru_id`, `guru_nip`, `guru_nama`, `guru_email`, `guru_password`, `guru_foto`, `guru_role`, `guru_status`, `created_at`, `created_by`) VALUES
-(2, '123526', 'hares', 'berrypop@gmail.com', 'hehe', '1668351509_33cf324547c3e58ee48a.png', 2, '1', '0000-00-00 00:00:00', 0);
+(2, '123526', 'hares', 'berrypop@gmail.com', '529ca8050a00180790cf88b63468826a', '1669654524_73c77dc75c8eecb27285.png', 1, '1', '0000-00-00 00:00:00', 0),
+(3, '12345673', 'Mustok', 'hehe@gmail.com', 'nganu', '1669654319_b3b34130e360f6c2ba48.png', 3, '1', '0000-00-00 00:00:00', 0),
+(4, '1238932', 'Sutikno', 'haiyoiki@gmail.com', 'nganu', '1669654510_4c77023c7f4368825e5d.png', 2, '1', '0000-00-00 00:00:00', 0),
+(5, '1341873', 'Muhammad Bledek', 'opoyo@gmail.com', 'bingung', '1669654616_8dd31be9193efb7c5047.png', 3, '1', '0000-00-00 00:00:00', 0);
 
 -- --------------------------------------------------------
 
@@ -57,6 +60,7 @@ CREATE TABLE `tb_kelas` (
   `kelas_id` int(11) NOT NULL,
   `kelas_kode` varchar(50) NOT NULL,
   `kelas_nama` varchar(100) NOT NULL,
+  `kelas_grade` int(11) NOT NULL,
   `wali_kelas` int(11) NOT NULL,
   `tahun_ajaran` int(11) NOT NULL,
   `created_by` int(11) NOT NULL
@@ -66,9 +70,19 @@ CREATE TABLE `tb_kelas` (
 -- Dumping data untuk tabel `tb_kelas`
 --
 
-INSERT INTO `tb_kelas` (`kelas_id`, `kelas_kode`, `kelas_nama`, `wali_kelas`, `tahun_ajaran`, `created_by`) VALUES
-(3, 'a123', '11Mipa5', 2, 0, 0),
-(4, 'a124', '12Mipa5', 2, 1, 0);
+INSERT INTO `tb_kelas` (`kelas_id`, `kelas_kode`, `kelas_nama`, `kelas_grade`, `wali_kelas`, `tahun_ajaran`, `created_by`) VALUES
+(3, 'A115', '11IPA5', 11, 4, 1, 0),
+(4, 'A125', '12IPA5', 12, 3, 1, 0),
+(7, 'a125', '12IPA1', 12, 2, 1, 0),
+(8, 'a126', '12IPA2', 12, 2, 1, 0),
+(9, 'a127', '12IPA3', 12, 2, 1, 0),
+(10, 'A101', '10IPA1', 10, 3, 1, 0),
+(11, 'A102', '10IPA2', 10, 4, 1, 0),
+(12, 'A103', '10IPA3', 10, 5, 1, 0),
+(13, 'A104', '10IPA4', 10, 3, 1, 0),
+(14, 'S101', '10IPS1', 10, 4, 1, 0),
+(15, 'S102', '10IPS2', 10, 4, 1, 0),
+(16, 'S102', '10IPS2', 10, 3, 1, 0);
 
 -- --------------------------------------------------------
 
@@ -127,7 +141,8 @@ CREATE TABLE `tb_role` (
 
 INSERT INTO `tb_role` (`role_id`, `role`) VALUES
 (1, 'Administrator'),
-(2, 'Guru');
+(2, 'Guru'),
+(3, 'Guru Piket');
 
 -- --------------------------------------------------------
 
@@ -156,7 +171,6 @@ CREATE TABLE `tb_siswa` (
   `siswa_tgl_lahir` date NOT NULL,
   `siswa_jk` varchar(30) NOT NULL,
   `siswa_alamat` varchar(225) NOT NULL,
-  `siswa_foto` varchar(225) NOT NULL,
   `siswa_th_angkatan` int(11) NOT NULL,
   `siswa_id_kelas` int(11) NOT NULL,
   `created_by` int(11) NOT NULL
@@ -166,8 +180,8 @@ CREATE TABLE `tb_siswa` (
 -- Dumping data untuk tabel `tb_siswa`
 --
 
-INSERT INTO `tb_siswa` (`siswa_id`, `siswa_nis`, `siswa_nama`, `siswa_tempat_lahir`, `siswa_tgl_lahir`, `siswa_jk`, `siswa_alamat`, `siswa_foto`, `siswa_th_angkatan`, `siswa_id_kelas`, `created_by`) VALUES
-(7, '5190411039', 'Yusuf Septian', 'semarang', '2022-11-20', 'Laki-Laki', 'mtl', '1668882955_0bce8c1f6402bac9cc1e.jpg', 2019, 3, 0);
+INSERT INTO `tb_siswa` (`siswa_id`, `siswa_nis`, `siswa_nama`, `siswa_tempat_lahir`, `siswa_tgl_lahir`, `siswa_jk`, `siswa_alamat`, `siswa_th_angkatan`, `siswa_id_kelas`, `created_by`) VALUES
+(8, '5190411039', 'Yusuf Septian', 'semarang', '2022-11-21', 'Laki-Laki', 'mtl', 2019, 3, 0);
 
 -- --------------------------------------------------------
 
@@ -282,13 +296,13 @@ ALTER TABLE `tb_wali_kelas`
 -- AUTO_INCREMENT untuk tabel `tb_guru`
 --
 ALTER TABLE `tb_guru`
-  MODIFY `guru_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `guru_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_kelas`
 --
 ALTER TABLE `tb_kelas`
-  MODIFY `kelas_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `kelas_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_mapel`
@@ -306,7 +320,7 @@ ALTER TABLE `tb_mengajar`
 -- AUTO_INCREMENT untuk tabel `tb_role`
 --
 ALTER TABLE `tb_role`
-  MODIFY `role_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `role_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_semester`
@@ -318,7 +332,7 @@ ALTER TABLE `tb_semester`
 -- AUTO_INCREMENT untuk tabel `tb_siswa`
 --
 ALTER TABLE `tb_siswa`
-  MODIFY `siswa_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `siswa_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_tahun_ajaran`
