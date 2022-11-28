@@ -22,7 +22,7 @@ class Kelas extends BaseController
         $data = [
             'title' => 'Absensi',
             'subtitle' => 'Kelas',
-            'kelas' => $this->Model_kelas->findAll(),
+            'kelas' => $this->Model_kelas->getKelas(),
             'w_kelas' => $this->Model_guru->findAll(),
             'tahun_ajar' => $this->Model_tahun_ajar->findAll(),
         ];

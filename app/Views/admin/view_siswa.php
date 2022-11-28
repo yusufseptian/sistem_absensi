@@ -70,7 +70,7 @@
                                 <td><?= $value['siswa_jk'] ?></td>
                                 <td><?= $value['siswa_alamat'] ?></td>
                                 <td><?= $value['siswa_th_angkatan'] ?></td>
-                                <td><?= $value['siswa_id_kelas'] ?></td>
+                                <td><?= $value['kelas_nama'] ?></td>
 
                                 <td>
                                     <button class="btn btn-xs btn-flat btn-warning" data-toggle="modal" data-target="#edit<?= $value['siswa_id'] ?>">

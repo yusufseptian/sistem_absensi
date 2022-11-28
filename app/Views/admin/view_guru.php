@@ -59,7 +59,7 @@
                             <td><?= $value['guru_nip'] ?></td>
                             <td><?= $value['guru_nama'] ?></td>
                             <td><?= $value['guru_email'] ?></td>
-                            <td><?= $value['guru_role'] ?></td>
+                            <td><?= $value['role'] ?></td>
                             <td><?= $value['guru_status'] ?></td>
                             <td class="text-center">
                                 <img class="img-fluid shadow" src="<?= base_url('foto_guru/' . $value['guru_foto']) ?>" width="200px">

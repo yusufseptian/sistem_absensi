@@ -21,4 +21,11 @@ class Model_kelas extends Model
         'wali_kelas',
         'tahun_ajaran'
     ];
+    public function getKelas()
+    {
+        return $this->db->table('tb_kelas')
+            ->join('tb_guru', 'tb_guru.guru_id=tb_kelas.wali_kelas')
+            ->join('tb_tahun_ajaran', 'tb_tahun_ajaran.th_id=tb_kelas.tahun_ajaran')
+            ->get()->getResultArray();
+    }
 }

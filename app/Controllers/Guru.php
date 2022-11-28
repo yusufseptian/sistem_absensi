@@ -20,7 +20,7 @@ class Guru extends BaseController
         $data = [
             'title' => 'Absensi',
             'subtitle' => 'Guru',
-            'guru' => $this->Model_guru->findAll(),
+            'guru' => $this->Model_guru->getDataGuru(),
             'role' => $this->Model_role->findAll(),
         ];
         return view('admin/view_guru', $data);

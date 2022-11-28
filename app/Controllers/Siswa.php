@@ -20,7 +20,7 @@ class Siswa extends BaseController
         $data = [
             'title' => 'Absensi',
             'subtitle' => 'Siswa',
-            'siswa' => $this->Model_siswa->findAll(),
+            'siswa' => $this->Model_siswa->getKelasSiswa(),
             'kelas' => $this->Model_kelas->findAll(),
         ];
         return view('admin/view_siswa', $data);

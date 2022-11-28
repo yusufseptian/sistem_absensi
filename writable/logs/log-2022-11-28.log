@@ -130,3 +130,205 @@ WHERE `tb_kelas`.`kelas_id` IN :tb_kelas.kelas_id:', [...], false)
 11 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
 12 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
 13 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+CRITICAL - 2022-11-28 11:34:44 --> Call to a member function findAll() on null
+in APPPATH\Controllers\Siswa.php on line 23.
+ 1 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Siswa->index()
+ 2 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Siswa))
+ 3 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2022-11-28 11:37:36 --> mysqli_sql_exception: Unknown column 'kelas.kelas_id' in 'on clause' in C:\xampp\htdocs\sistem_absensi\sistem_absensi\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\xampp\htdocs\sistem_absensi\sistem_absensi\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\sistem_absensi\sistem_absensi\vendor\codeigniter4\framework\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\sistem_absensi\sistem_absensi\vendor\codeigniter4\framework\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\sistem_absensi\sistem_absensi\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\sistem_absensi\sistem_absensi\app\Models\Model_siswa.php(32): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\sistem_absensi\sistem_absensi\app\Controllers\Siswa.php(23): App\Models\Model_siswa->getKelasSiswa()
+#6 C:\xampp\htdocs\sistem_absensi\sistem_absensi\vendor\codeigniter4\framework\system\CodeIgniter.php(927): App\Controllers\Siswa->index()
+#7 C:\xampp\htdocs\sistem_absensi\sistem_absensi\vendor\codeigniter4\framework\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Siswa))
+#8 C:\xampp\htdocs\sistem_absensi\sistem_absensi\vendor\codeigniter4\framework\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\sistem_absensi\sistem_absensi\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\sistem_absensi\sistem_absensi\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(46): require_once('C:\\xampp\\htdocs...')
+#11 {main}
+CRITICAL - 2022-11-28 11:37:36 --> Unknown column 'kelas.kelas_id' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *
+FROM `tb_siswa`
+JOIN `tb_kelas` ON `kelas`.`kelas_id`=`siswa`.`siswa_id_kelas`
+JOIN `tb_tahun_ajaran` ON `tb_tahun_ajaran`.`th_id`=`siswa`.`siswa_tahun_angkatan`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `tb_siswa`
+JOIN `tb_kelas` ON `kelas`.`kelas_id`=`siswa`.`siswa_id_kelas`
+JOIN `tb_tahun_ajaran` ON `tb_tahun_ajaran`.`th_id`=`siswa`.`siswa_tahun_angkatan`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `tb_siswa`
+JOIN `tb_kelas` ON `kelas`.`kelas_id`=`siswa`.`siswa_id_kelas`
+JOIN `tb_tahun_ajaran` ON `tb_tahun_ajaran`.`th_id`=`siswa`.`siswa_tahun_angkatan`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tb_siswa`
+JOIN `tb_kelas` ON `kelas`.`kelas_id`=`siswa`.`siswa_id_kelas`
+JOIN `tb_tahun_ajaran` ON `tb_tahun_ajaran`.`th_id`=`siswa`.`siswa_tahun_angkatan`', [], false)
+ 5 APPPATH\Models\Model_siswa.php(32): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Siswa.php(23): App\Models\Model_siswa->getKelasSiswa()
+ 7 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Siswa->index()
+ 8 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Siswa))
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2022-11-28 11:38:35 --> mysqli_sql_exception: Unknown column 'siswa.siswa_id_kelas' in 'on clause' in C:\xampp\htdocs\sistem_absensi\sistem_absensi\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\xampp\htdocs\sistem_absensi\sistem_absensi\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\sistem_absensi\sistem_absensi\vendor\codeigniter4\framework\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\sistem_absensi\sistem_absensi\vendor\codeigniter4\framework\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\sistem_absensi\sistem_absensi\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\sistem_absensi\sistem_absensi\app\Models\Model_siswa.php(32): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\sistem_absensi\sistem_absensi\app\Controllers\Siswa.php(23): App\Models\Model_siswa->getKelasSiswa()
+#6 C:\xampp\htdocs\sistem_absensi\sistem_absensi\vendor\codeigniter4\framework\system\CodeIgniter.php(927): App\Controllers\Siswa->index()
+#7 C:\xampp\htdocs\sistem_absensi\sistem_absensi\vendor\codeigniter4\framework\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Siswa))
+#8 C:\xampp\htdocs\sistem_absensi\sistem_absensi\vendor\codeigniter4\framework\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\sistem_absensi\sistem_absensi\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\sistem_absensi\sistem_absensi\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(46): require_once('C:\\xampp\\htdocs...')
+#11 {main}
+CRITICAL - 2022-11-28 11:38:35 --> Unknown column 'siswa.siswa_id_kelas' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *
+FROM `tb_siswa`
+JOIN `tb_kelas` ON `tb_kelas`.`kelas_id`=`siswa`.`siswa_id_kelas`
+JOIN `tb_tahun_ajaran` ON `tb_tahun_ajaran`.`th_id`=`siswa`.`siswa_tahun_angkatan`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `tb_siswa`
+JOIN `tb_kelas` ON `tb_kelas`.`kelas_id`=`siswa`.`siswa_id_kelas`
+JOIN `tb_tahun_ajaran` ON `tb_tahun_ajaran`.`th_id`=`siswa`.`siswa_tahun_angkatan`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `tb_siswa`
+JOIN `tb_kelas` ON `tb_kelas`.`kelas_id`=`siswa`.`siswa_id_kelas`
+JOIN `tb_tahun_ajaran` ON `tb_tahun_ajaran`.`th_id`=`siswa`.`siswa_tahun_angkatan`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tb_siswa`
+JOIN `tb_kelas` ON `tb_kelas`.`kelas_id`=`siswa`.`siswa_id_kelas`
+JOIN `tb_tahun_ajaran` ON `tb_tahun_ajaran`.`th_id`=`siswa`.`siswa_tahun_angkatan`', [], false)
+ 5 APPPATH\Models\Model_siswa.php(32): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Siswa.php(23): App\Models\Model_siswa->getKelasSiswa()
+ 7 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Siswa->index()
+ 8 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Siswa))
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2022-11-28 11:38:46 --> mysqli_sql_exception: Unknown column 'siswa.tb_siswa_id_kelas' in 'on clause' in C:\xampp\htdocs\sistem_absensi\sistem_absensi\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\xampp\htdocs\sistem_absensi\sistem_absensi\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\sistem_absensi\sistem_absensi\vendor\codeigniter4\framework\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\sistem_absensi\sistem_absensi\vendor\codeigniter4\framework\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\sistem_absensi\sistem_absensi\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\sistem_absensi\sistem_absensi\app\Models\Model_siswa.php(32): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\sistem_absensi\sistem_absensi\app\Controllers\Siswa.php(23): App\Models\Model_siswa->getKelasSiswa()
+#6 C:\xampp\htdocs\sistem_absensi\sistem_absensi\vendor\codeigniter4\framework\system\CodeIgniter.php(927): App\Controllers\Siswa->index()
+#7 C:\xampp\htdocs\sistem_absensi\sistem_absensi\vendor\codeigniter4\framework\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Siswa))
+#8 C:\xampp\htdocs\sistem_absensi\sistem_absensi\vendor\codeigniter4\framework\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\sistem_absensi\sistem_absensi\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\sistem_absensi\sistem_absensi\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(46): require_once('C:\\xampp\\htdocs...')
+#11 {main}
+CRITICAL - 2022-11-28 11:38:46 --> Unknown column 'siswa.tb_siswa_id_kelas' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *
+FROM `tb_siswa`
+JOIN `tb_kelas` ON `tb_kelas`.`kelas_id`=`siswa`.`tb_siswa_id_kelas`
+JOIN `tb_tahun_ajaran` ON `tb_tahun_ajaran`.`th_id`=`siswa`.`siswa_tahun_angkatan`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `tb_siswa`
+JOIN `tb_kelas` ON `tb_kelas`.`kelas_id`=`siswa`.`tb_siswa_id_kelas`
+JOIN `tb_tahun_ajaran` ON `tb_tahun_ajaran`.`th_id`=`siswa`.`siswa_tahun_angkatan`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `tb_siswa`
+JOIN `tb_kelas` ON `tb_kelas`.`kelas_id`=`siswa`.`tb_siswa_id_kelas`
+JOIN `tb_tahun_ajaran` ON `tb_tahun_ajaran`.`th_id`=`siswa`.`siswa_tahun_angkatan`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tb_siswa`
+JOIN `tb_kelas` ON `tb_kelas`.`kelas_id`=`siswa`.`tb_siswa_id_kelas`
+JOIN `tb_tahun_ajaran` ON `tb_tahun_ajaran`.`th_id`=`siswa`.`siswa_tahun_angkatan`', [], false)
+ 5 APPPATH\Models\Model_siswa.php(32): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Siswa.php(23): App\Models\Model_siswa->getKelasSiswa()
+ 7 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Siswa->index()
+ 8 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Siswa))
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2022-11-28 11:39:26 --> mysqli_sql_exception: Unknown column 'siswa.siswa_tahun_angkatan' in 'on clause' in C:\xampp\htdocs\sistem_absensi\sistem_absensi\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\xampp\htdocs\sistem_absensi\sistem_absensi\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\sistem_absensi\sistem_absensi\vendor\codeigniter4\framework\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\sistem_absensi\sistem_absensi\vendor\codeigniter4\framework\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\sistem_absensi\sistem_absensi\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\sistem_absensi\sistem_absensi\app\Models\Model_siswa.php(32): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\sistem_absensi\sistem_absensi\app\Controllers\Siswa.php(23): App\Models\Model_siswa->getKelasSiswa()
+#6 C:\xampp\htdocs\sistem_absensi\sistem_absensi\vendor\codeigniter4\framework\system\CodeIgniter.php(927): App\Controllers\Siswa->index()
+#7 C:\xampp\htdocs\sistem_absensi\sistem_absensi\vendor\codeigniter4\framework\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Siswa))
+#8 C:\xampp\htdocs\sistem_absensi\sistem_absensi\vendor\codeigniter4\framework\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\sistem_absensi\sistem_absensi\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\sistem_absensi\sistem_absensi\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(46): require_once('C:\\xampp\\htdocs...')
+#11 {main}
+CRITICAL - 2022-11-28 11:39:26 --> Unknown column 'siswa.siswa_tahun_angkatan' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *
+FROM `tb_siswa`
+JOIN `tb_kelas` ON `tb_kelas`.`kelas_id`=`tb_siswa`.`siswa_id_kelas`
+JOIN `tb_tahun_ajaran` ON `tb_tahun_ajaran`.`th_id`=`siswa`.`siswa_tahun_angkatan`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `tb_siswa`
+JOIN `tb_kelas` ON `tb_kelas`.`kelas_id`=`tb_siswa`.`siswa_id_kelas`
+JOIN `tb_tahun_ajaran` ON `tb_tahun_ajaran`.`th_id`=`siswa`.`siswa_tahun_angkatan`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `tb_siswa`
+JOIN `tb_kelas` ON `tb_kelas`.`kelas_id`=`tb_siswa`.`siswa_id_kelas`
+JOIN `tb_tahun_ajaran` ON `tb_tahun_ajaran`.`th_id`=`siswa`.`siswa_tahun_angkatan`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tb_siswa`
+JOIN `tb_kelas` ON `tb_kelas`.`kelas_id`=`tb_siswa`.`siswa_id_kelas`
+JOIN `tb_tahun_ajaran` ON `tb_tahun_ajaran`.`th_id`=`siswa`.`siswa_tahun_angkatan`', [], false)
+ 5 APPPATH\Models\Model_siswa.php(32): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Siswa.php(23): App\Models\Model_siswa->getKelasSiswa()
+ 7 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Siswa->index()
+ 8 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Siswa))
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')
+ERROR - 2022-11-28 11:39:37 --> mysqli_sql_exception: Unknown column 'tb_siswa.siswa_tahun_angkatan' in 'on clause' in C:\xampp\htdocs\sistem_absensi\sistem_absensi\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php:292
+Stack trace:
+#0 C:\xampp\htdocs\sistem_absensi\sistem_absensi\vendor\codeigniter4\framework\system\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *\nFROM `...', 0)
+#1 C:\xampp\htdocs\sistem_absensi\sistem_absensi\vendor\codeigniter4\framework\system\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 C:\xampp\htdocs\sistem_absensi\sistem_absensi\vendor\codeigniter4\framework\system\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 C:\xampp\htdocs\sistem_absensi\sistem_absensi\vendor\codeigniter4\framework\system\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 C:\xampp\htdocs\sistem_absensi\sistem_absensi\app\Models\Model_siswa.php(32): CodeIgniter\Database\BaseBuilder->get()
+#5 C:\xampp\htdocs\sistem_absensi\sistem_absensi\app\Controllers\Siswa.php(23): App\Models\Model_siswa->getKelasSiswa()
+#6 C:\xampp\htdocs\sistem_absensi\sistem_absensi\vendor\codeigniter4\framework\system\CodeIgniter.php(927): App\Controllers\Siswa->index()
+#7 C:\xampp\htdocs\sistem_absensi\sistem_absensi\vendor\codeigniter4\framework\system\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Siswa))
+#8 C:\xampp\htdocs\sistem_absensi\sistem_absensi\vendor\codeigniter4\framework\system\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 C:\xampp\htdocs\sistem_absensi\sistem_absensi\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 C:\xampp\htdocs\sistem_absensi\sistem_absensi\vendor\codeigniter4\framework\system\Commands\Server\rewrite.php(46): require_once('C:\\xampp\\htdocs...')
+#11 {main}
+CRITICAL - 2022-11-28 11:39:37 --> Unknown column 'tb_siswa.siswa_tahun_angkatan' in 'on clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 292.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(292): mysqli->query('SELECT *
+FROM `tb_siswa`
+JOIN `tb_kelas` ON `tb_kelas`.`kelas_id`=`tb_siswa`.`siswa_id_kelas`
+JOIN `tb_tahun_ajaran` ON `tb_tahun_ajaran`.`th_id`=`tb_siswa`.`siswa_tahun_angkatan`', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(666): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `tb_siswa`
+JOIN `tb_kelas` ON `tb_kelas`.`kelas_id`=`tb_siswa`.`siswa_id_kelas`
+JOIN `tb_tahun_ajaran` ON `tb_tahun_ajaran`.`th_id`=`tb_siswa`.`siswa_tahun_angkatan`')
+ 3 SYSTEMPATH\Database\BaseConnection.php(593): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `tb_siswa`
+JOIN `tb_kelas` ON `tb_kelas`.`kelas_id`=`tb_siswa`.`siswa_id_kelas`
+JOIN `tb_tahun_ajaran` ON `tb_tahun_ajaran`.`th_id`=`tb_siswa`.`siswa_tahun_angkatan`')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1585): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `tb_siswa`
+JOIN `tb_kelas` ON `tb_kelas`.`kelas_id`=`tb_siswa`.`siswa_id_kelas`
+JOIN `tb_tahun_ajaran` ON `tb_tahun_ajaran`.`th_id`=`tb_siswa`.`siswa_tahun_angkatan`', [], false)
+ 5 APPPATH\Models\Model_siswa.php(32): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Siswa.php(23): App\Models\Model_siswa->getKelasSiswa()
+ 7 SYSTEMPATH\CodeIgniter.php(927): App\Controllers\Siswa->index()
+ 8 SYSTEMPATH\CodeIgniter.php(482): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Siswa))
+ 9 SYSTEMPATH\CodeIgniter.php(351): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH\Commands\Server\rewrite.php(46): require_once('FCPATH\\index.php')

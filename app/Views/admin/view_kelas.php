@@ -58,8 +58,8 @@
                             <td><?= $value['kelas_kode'] ?></td>
                             <td><?= $value['kelas_nama'] ?></td>
                             <td><?= $value['kelas_grade'] ?></td>
-                            <td><?= $value['wali_kelas'] ?></td>
-                            <td><?= $value['tahun_ajaran'] ?></td>
+                            <td><?= $value['guru_nama'] ?></td>
+                            <td><?= $value['th_ajaran'] ?></td>
                             <td>
                                 <button class="btn btn-xs btn-flat btn-warning" data-toggle="modal" data-target="#edit<?= $value['kelas_id'] ?>">
                                     <i class="fas fa-pen"></i>
