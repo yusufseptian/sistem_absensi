@@ -33,6 +33,7 @@ class Kelas extends BaseController
         $data = [
             'kelas_kode' => $this->request->getPost('kelas_kode'),
             'kelas_nama' => $this->request->getPost('kelas_nama'),
+            'kelas_grade' => $this->request->getPost('kelas_grade'),
             'wali_kelas' => $this->request->getPost('wali_kelas'),
             'tahun_ajaran' => $this->request->getPost('tahun_ajaran'),
         ];
@@ -46,6 +47,7 @@ class Kelas extends BaseController
         $data = [
             'kelas_kode' => $this->request->getPost('kelas_kode'),
             'kelas_nama' => $this->request->getPost('kelas_nama'),
+            'kelas_grade' => $this->request->getPost('kelas_grade'),
             'wali_kelas' => $this->request->getPost('wali_kelas'),
             'tahun_ajaran' => $this->request->getPost('tahun_ajaran'),
 

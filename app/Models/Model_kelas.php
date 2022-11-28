@@ -17,6 +17,7 @@ class Model_kelas extends Model
         'kelas_id',
         'kelas_kode',
         'kelas_nama',
+        'kelas_grade',
         'wali_kelas',
         'tahun_ajaran'
     ];

@@ -44,6 +44,7 @@
                         <th width="70px">#</th>
                         <th>Kode Kelas</th>
                         <th>Kelas</th>
+                        <th>Tingkat Kelas</th>
                         <th>Wali Kelas</th>
                         <th>Tahun Ajaran</th>
                         <th width="100px">Action</th>
@@ -56,6 +57,7 @@
                             <td><?= $no++ ?></td>
                             <td><?= $value['kelas_kode'] ?></td>
                             <td><?= $value['kelas_nama'] ?></td>
+                            <td><?= $value['kelas_grade'] ?></td>
                             <td><?= $value['wali_kelas'] ?></td>
                             <td><?= $value['tahun_ajaran'] ?></td>
                             <td>
@@ -93,6 +95,15 @@
                 <div class="form-group">
                     <label>kelas</label>
                     <input name="kelas_nama" class="form-control" placeholder="kelas_nama" required>
+                </div>
+                <div class="form-group">
+                    <label>Tingkat Kelas</label>
+                    <select name="kelas_grade" class="form-control">
+                        <option value="">--Pilih Tingkat Kelas--</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                    </select>
                 </div>
                 <div class="form-group">
                     <label>Wali Kelas</label>
@@ -145,6 +156,15 @@
                     <div class="form-group">
                         <label>kelas</label>
                         <input name="kelas_nama" class="form-control" value="<?= $value['kelas_nama'] ?>" placeholder="kelas_nama" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Tingkat Kelas</label>
+                        <select name="kelas_grade" class="form-control">
+                            <option value="">--Pilih Tingkat Kelas--</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label>Wali Kelas</label>
