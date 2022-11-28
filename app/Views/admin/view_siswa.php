@@ -2,6 +2,10 @@
 <?= $this->section('content') ?>
 
 <div class="col-sm">
+    <button class="btn btn-sm btn-dark mb-2" data-toggle="modal" data-target="#filter">
+        <i class="fa fa-filter"></i> Filter Data
+    </button>
+
     <div class="card card-primary">
         <div class="card-header">
             <h3 class="card-title">Daftar <?= $subtitle ?></h3>
@@ -39,49 +43,47 @@
             }
             ?>
             <table class="table table-sm" id="siswaTables">
-                <thead>
-                    <tr>
-                        <th width="70px">#</th>
-                        <th>NIS</th>
-                        <th>Nama</th>
-                        <th>Tempat Lahir</th>
-                        <th>Tanggal Lahir</th>
-                        <th>Jenis Kelamin</th>
-                        <th>Alamat</th>
-                        <th>Tahun Angkatan</th>
-                        <th>Kelas</th>
-                        <th class="text-center">Foto</th>
-                        <th width="100px">Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php $no = 1;
-                    foreach ($siswa as $key => $value) { ?>
+                <table class="table table-sm">
+                    <thead>
                         <tr>
-                            <td><?= $no++ ?></td>
-                            <td><?= $value['siswa_nis'] ?></td>
-                            <td><?= $value['siswa_nama'] ?></td>
-                            <td><?= $value['siswa_tempat_lahir'] ?></td>
-                            <td><?= $value['siswa_tgl_lahir'] ?></td>
-                            <td><?= $value['siswa_jk'] ?></td>
-                            <td><?= $value['siswa_alamat'] ?></td>
-                            <td><?= $value['siswa_th_angkatan'] ?></td>
-                            <td><?= $value['siswa_id_kelas'] ?></td>
-                            <td class="text-center">
-                                <img class="img-fluid shadow" src="<?= base_url('foto_siswa/' . $value['siswa_foto']) ?>" width="200px">
-                            </td>
-                            <td>
-                                <button class="btn btn-xs btn-flat btn-warning" data-toggle="modal" data-target="#edit<?= $value['siswa_id'] ?>">
-                                    <i class="fas fa-pen"></i>
-                                </button>
-                                <button class="btn btn-xs btn-flat btn-danger" data-toggle="modal" data-target="#delete<?= $value['siswa_id'] ?>">
-                                    <i class="fas fa-trash"></i>
-                                </button>
-                            </td>
+                            <th width="70px">#</th>
+                            <th>NIS</th>
+                            <th>Nama</th>
+                            <th>Tempat Lahir</th>
+                            <th>Tanggal Lahir</th>
+                            <th>Jenis Kelamin</th>
+                            <th>Alamat</th>
+                            <th>Tahun Angkatan</th>
+                            <th>Kelas</th>
+                            <th width="100px">Action</th>
                         </tr>
-                    <?php } ?>
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        <?php $no = 1;
+                        foreach ($siswa as $key => $value) { ?>
+                            <tr>
+                                <td><?= $no++ ?></td>
+                                <td><?= $value['siswa_nis'] ?></td>
+                                <td><?= $value['siswa_nama'] ?></td>
+                                <td><?= $value['siswa_tempat_lahir'] ?></td>
+                                <td><?= $value['siswa_tgl_lahir'] ?></td>
+                                <td><?= $value['siswa_jk'] ?></td>
+                                <td><?= $value['siswa_alamat'] ?></td>
+                                <td><?= $value['siswa_th_angkatan'] ?></td>
+                                <td><?= $value['siswa_id_kelas'] ?></td>
+
+                                <td>
+                                    <button class="btn btn-xs btn-flat btn-warning" data-toggle="modal" data-target="#edit<?= $value['siswa_id'] ?>">
+                                        <i class="fas fa-pen"></i>
+                                    </button>
+                                    <button class="btn btn-xs btn-flat btn-danger" data-toggle="modal" data-target="#delete<?= $value['siswa_id'] ?>">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        <?php } ?>
+                    </tbody>
+                </table>
         </div>
     </div>
 </div>
@@ -139,14 +141,6 @@
                             <option value="<?= $value['kelas_id'] ?>"><?= $value['kelas_nama'] ?></option>
                         <?php endforeach; ?>
                     </select>
-                </div>
-                <div class="form-group">
-                    <label>Foto siswa</label>
-                    <input id="preview_gambar" type="file" accept="image/*" name="siswa_foto" class="form-control" required>
-                </div>
-                <div class="form-group">
-                    <label>Preview</label><br>
-                    <img id="gambar_load" src="" width="200px">
                 </div>
             </div>
             <div class="modal-footer justify-content-between">
@@ -216,14 +210,6 @@
                             <?php endforeach; ?>
                         </select>
                     </div>
-                    <div class="form-group">
-                        <label>Ganti Foto Siswa</label>
-                        <input id="preview_gambar" type="file" accept="image/*" name="siswa_foto" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label>Preview</label><br>
-                        <img id="gambar_load" src="<?= base_url('foto_siswa/' . $value['siswa_foto']) ?>" width="200px">
-                    </div>
                 </div>
                 <div class="modal-footer justify-content-between">
                     <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Tutup</button>
@@ -269,5 +255,30 @@
         setDataTables("#siswaTables");
     });
 </script>
+<!-- modal filter -->
+<div class="modal fade" id="filter">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-dark">
+                <h4 class="modal-title">Filter Data Siswa</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <button class="btn btn-sm btn-success">Kelas 10</button>
+                <button class="btn btn-sm btn-warning">Kelas 11</button>
+                <button class="btn btn-sm btn-danger">Kelas 12</button>
+            </div>
+            <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Tutup</button>
+                <a href="" class="btn btn-dark btn-sm">Terapkan</a>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
 
 <?= $this->endSection() ?>

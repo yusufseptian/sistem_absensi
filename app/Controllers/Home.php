@@ -10,7 +10,7 @@ class Home extends BaseController
             'title' => 'Absensi',
             'subtitle' => 'Home Admin',
         ];
-        return view('template/t_admin', $data);
+        return view('v_home', $data);
     }
     public function nganu()
     {
