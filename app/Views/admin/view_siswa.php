@@ -250,11 +250,6 @@
     <!-- /.modal -->
 <?php } ?>
 
-<script>
-    $(document).ready(function() {
-        setDataTables("#siswaTables");
-    });
-</script>
 <!-- modal filter -->
 <div class="modal fade" id="filter">
     <div class="modal-dialog">
@@ -266,19 +261,83 @@
                 </button>
             </div>
             <div class="modal-body">
-                <button class="btn btn-sm btn-success">Kelas 10</button>
-                <button class="btn btn-sm btn-warning">Kelas 11</button>
-                <button class="btn btn-sm btn-danger">Kelas 12</button>
+                <div class="mb-3">
+                    <label for="cmb_th_ajar">Pilih Tahun Ajaran</label>
+                    <select class="form-select" id="cmb_th_ajar" aria-label="Tahun Ajaran" name="thajar" onchange="showClass()">
+                        <?php foreach ($ta as $dt) : ?>
+                            <option value="<?= $dt['th_id'] ?>"><?= $dt['th_ajaran'] ?></option>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="cmb_grade">Pilih Grade</label>
+                    <select class="form-select" id="cmb_grade" aria-label="Tahun Ajaran" name="thajar" onchange="showClass()">
+                        <?php for ($i = 10; $i < 13; $i++) : ?>
+                            <option value="<?= $i ?>">Kelas <?= $i ?></option>
+                        <?php endfor; ?>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <form action="" method="get" id="setClass"></form>
+                </div>
             </div>
             <div class="modal-footer justify-content-between">
                 <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Tutup</button>
-                <a href="" class="btn btn-dark btn-sm">Terapkan</a>
+                <a href="<?= base_url('/siswa') ?>" class="btn btn-dark btn-sm">Show All</a>
             </div>
         </div>
         <!-- /.modal-content -->
     </div>
     <!-- /.modal-dialog -->
 </div>
+<!-- Set js var -->
+<script>
+    var kelas = [];
+    <?php foreach ($kelas as $dt) : ?>
+        var temp = {
+            "id": "<?= $dt['kelas_id'] ?>",
+            "name": "<?= $dt['kelas_nama'] ?>",
+            "ta": "<?= $dt['tahun_ajaran'] ?>",
+            "grade": "<?= $dt['kelas_grade'] ?>"
+        };
+        kelas.push(temp);
+    <?php endforeach; ?>
+
+    // set class
+    function showClass() {
+        var ta = document.getElementById('cmb_th_ajar').value;
+        var grade = document.getElementById('cmb_grade').value;
+        var container = document.getElementById('setClass');
+        $("#setClass").empty();
+
+        var i = 0;
+
+        kelas.forEach(function() {
+            if (kelas[i]['grade'] == grade && kelas[i]['ta'] == ta) {
+                var btn = document.createElement("button");
+                btn.setAttribute("class", "btn btn-sm btn-success me-3");
+                btn.setAttribute("name", "kelas");
+                btn.setAttribute("value", kelas[i]['id']);
+                btn.innerHTML = kelas[i]['name'];
+                container.append(btn);
+            }
+            i++;
+        });
+
+        if ($("#setClass").children().length == 0) {
+            container.innerHTML = "class Not Found";
+        }
+    }
+    $(document).ready(function() {
+        showClass();
+    })
+</script>
 <!-- /.modal -->
+
+<script>
+    $(document).ready(function() {
+        setDataTables("#siswaTables");
+    });
+</script>
 
 <?= $this->endSection() ?>
