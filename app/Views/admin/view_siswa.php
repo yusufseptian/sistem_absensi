@@ -261,17 +261,21 @@
                 </button>
             </div>
             <div class="modal-body">
-                <div class="mb-3">
-                    <label for="cmb_th_ajar">Pilih Tahun Ajaran</label>
-                    <select class="form-select" id="cmb_th_ajar" aria-label="Tahun Ajaran" name="thajar" onchange="showClass()">
+                <div class="row mb-3">
+                    <div class="col-4">
+                        <label for="cmb_th_ajar">Pilih Tahun Ajaran</label>
+                    </div>
+                    <select class="form-select rounded" id="cmb_th_ajar" aria-label="Tahun Ajaran" name="thajar" onchange="showClass()">
                         <?php foreach ($ta as $dt) : ?>
                             <option value="<?= $dt['th_id'] ?>"><?= $dt['th_ajaran'] ?></option>
                         <?php endforeach; ?>
                     </select>
                 </div>
-                <div class="mb-3">
-                    <label for="cmb_grade">Pilih Grade</label>
-                    <select class="form-select" id="cmb_grade" aria-label="Tahun Ajaran" name="thajar" onchange="showClass()">
+                <div class="row mb-3">
+                    <div class="col-4">
+                        <label for="cmb_grade">Pilih Grade</label>
+                    </div>
+                    <select class="form-select rounded" id="cmb_grade" aria-label="Tahun Ajaran" name="thajar" onchange="showClass()">
                         <?php for ($i = 10; $i < 13; $i++) : ?>
                             <option value="<?= $i ?>">Kelas <?= $i ?></option>
                         <?php endfor; ?>
@@ -315,7 +319,7 @@
         kelas.forEach(function() {
             if (kelas[i]['grade'] == grade && kelas[i]['ta'] == ta) {
                 var btn = document.createElement("button");
-                btn.setAttribute("class", "btn btn-sm btn-success me-3");
+                btn.setAttribute("class", "btn btn-sm btn-success me-3 mx-1");
                 btn.setAttribute("name", "kelas");
                 btn.setAttribute("value", kelas[i]['id']);
                 btn.innerHTML = kelas[i]['name'];
