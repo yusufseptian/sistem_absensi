@@ -41,4 +41,12 @@ class GuruPiket extends BaseController
         ];
         return view('guru_piket/kelas_12', $data);
     }
+    public function Absensi()
+    {
+        $data = [
+            'title' => 'Absensi',
+            'subtitle' => 'Kelas 12 IPA 1',
+        ];
+        return view('guru_piket/v_absensi', $data);
+    }
 }
