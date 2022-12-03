@@ -12,7 +12,7 @@
             <div class="icon">
                 <i class="fas fa-user-graduate"></i>
             </div>
-            <a href="<?= base_url('jurusan') ?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+            <a href="<?= base_url('GuruPiket/Absensi') ?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
         </div>
     </div>
 
