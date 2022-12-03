@@ -8,11 +8,7 @@ class GuruPiket extends BaseController
 {
     public function index()
     {
-        $data = [
-            'title' => 'Absensi',
-            'subtitle' => 'Guru Piket',
-        ];
-        return view('guru_piket/dashboard_guru_piket', $data);
+        return redirect()->to(base_url('/'));
     }
 
     public function kelas10()

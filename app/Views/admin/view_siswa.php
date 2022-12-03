@@ -319,7 +319,7 @@
         kelas.forEach(function() {
             if (kelas[i]['grade'] == grade && kelas[i]['ta'] == ta) {
                 var btn = document.createElement("button");
-                btn.setAttribute("class", "btn btn-sm btn-success me-3 mx-1");
+                btn.setAttribute("class", "btn btn-sm btn-success mx-1");
                 btn.setAttribute("name", "kelas");
                 btn.setAttribute("value", kelas[i]['id']);
                 btn.innerHTML = kelas[i]['name'];

@@ -2,6 +2,9 @@
 
 namespace Config;
 
+use App\Filters\AdminFilter;
+use App\Filters\AdminTUFilter;
+use App\Filters\GuruPiketFilter;
 use App\Filters\LoginFilter;
 use CodeIgniter\Config\BaseConfig;
 use CodeIgniter\Filters\CSRF;
@@ -24,7 +27,9 @@ class Filters extends BaseConfig
         'honeypot'      => Honeypot::class,
         'invalidchars'  => InvalidChars::class,
         'secureheaders' => SecureHeaders::class,
-        'login' => LoginFilter::class
+        'login' => LoginFilter::class,
+        'admintufilter' => AdminTUFilter::class,
+        'gurupiketfilter' => GuruPiketFilter::class,
     ];
 
     /**
@@ -38,9 +43,20 @@ class Filters extends BaseConfig
             // 'honeypot',
             // 'csrf',
             // 'invalidchars',
-            'login' => ['except' => ['login', 'login/logauth']]
+            'login' => [
+                'except' => ['login', 'login/logauth']
+            ],
+
+            'admintufilter' => [
+                'except' => ['/', 'login', 'login/*', 'home', 'gurupiket', 'gurupiket/*']
+            ],
+            'gurupiketfilter' => [
+                'except' => ['/', 'login', 'login/*', 'home', 'siswa', 'siswa/*', 'mapel/', 'mapel/*', 'kelas/', 'kelas/*', 'guru', 'guru/*', 'tahun_ajar', 'tahun_ajar/*']
+            ]
         ],
         'after' => [
+            // 'gurupiketfilter' => ['gurupiket/', 'gurupiket/*'],
+
             'toolbar',
             // 'honeypot',
             // 'secureheaders',

@@ -260,6 +260,14 @@
                 });
             });
         </script>
+        <!-- Alert Block Access -->
+        <?php if (session('blockAccess')) : ?>
+            <script>
+                $(document).ready(function() {
+                    alert("<?= session('blockAccess') ?>");
+                })
+            </script>
+        <?php endif; ?>
 </body>
 
 </html>
