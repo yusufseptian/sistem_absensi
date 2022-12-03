@@ -11,7 +11,7 @@ class GuruPiketFilter implements FilterInterface
     public function before(RequestInterface $request, $arguments = null)
     {
         if (session('log_auth')['role'] != "2") {
-            session()->setFlashdata('blockAccess', 'Halaman ini tidak dapat diakses oleh anda');
+            session()->setFlashdata('someWrong', 'Halaman ini tidak dapat diakses oleh anda');
             return redirect()->to(base_url('/'));
         }
     }

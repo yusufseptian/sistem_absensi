@@ -285,10 +285,10 @@
         });
     </script>
     <!-- Alert Block Access -->
-    <?php if (session('blockAccess')) : ?>
+    <?php if (session('someWrong')) : ?>
         <script>
             $(document).ready(function() {
-                alert("<?= session('blockAccess') ?>");
+                alert("<?= session('someWrong') ?>");
             })
         </script>
     <?php endif; ?>

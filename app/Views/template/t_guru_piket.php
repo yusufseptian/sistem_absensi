@@ -139,10 +139,10 @@
     <script src="<?= base_url('assets') ?>/plugins/jquery/jquery.min.js"></script>
 
     <!-- Alert Block Access -->
-    <?php if (session('blockAccess')) : ?>
+    <?php if (session('someWrong')) : ?>
         <script>
             $(document).ready(function() {
-                alert("<?= session('blockAccess') ?>");
+                alert("<?= session('someWrong') ?>");
             })
         </script>
     <?php endif; ?>

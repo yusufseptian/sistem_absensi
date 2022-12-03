@@ -12,7 +12,7 @@ class AdminTUFilter implements FilterInterface
     {
         // session()->remove('log_auth');
         if (session('log_auth')['role'] != "1") {
-            session()->setFlashdata('blockAccess', 'Halaman ini tidak dapat diakses oleh anda');
+            session()->setFlashdata('someWrong', 'Halaman ini tidak dapat diakses oleh anda');
             return redirect()->to(base_url('/'));
         }
     }
