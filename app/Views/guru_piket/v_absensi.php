@@ -18,43 +18,45 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>5190411039</td>
-                        <td>Muhammad Yusuf Septian</td>
-                        <td>
-
-                            <div class="form-check d-inline-block">
-                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                                <label class="form-check-label" for="exampleRadios1">
-                                    Hadir
-                                </label>
-                            </div>
-                            <div class="form-check d-inline-block">
-                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                                <label class="form-check-label" for="exampleRadios1">
-                                    Izin
-                                </label>
-                            </div>
-                            <div class="form-check d-inline-block">
-                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                                <label class="form-check-label" for="exampleRadios1">
-                                    Sakit
-                                </label>
-                            </div>
-                            <div class="form-check d-inline-block">
-                                <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-                                <label class="form-check-label" for="exampleRadios1">
-                                    Alpha
-                                </label>
-                            </div>
-                        </td>
-                        <td>
-                            <div class="form-group">
-                                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                            </div>
-                        </td>
-                    </tr>
+                    <?php $no = 1;
+                    foreach ($dtSiswa as $key => $value) { ?>
+                        <tr>
+                            <td><?= $no ?></td>
+                            <td><?= $value['siswa_nis'] ?></td>
+                            <td><?= $value['siswa_nama'] ?></td>
+                            <td>
+                                <div class="form-check d-inline-block">
+                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                                    <label class="form-check-label" for="exampleRadios1">
+                                        Hadir
+                                    </label>
+                                </div>
+                                <div class="form-check d-inline-block">
+                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                                    <label class="form-check-label" for="exampleRadios1">
+                                        Izin
+                                    </label>
+                                </div>
+                                <div class="form-check d-inline-block">
+                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                                    <label class="form-check-label" for="exampleRadios1">
+                                        Sakit
+                                    </label>
+                                </div>
+                                <div class="form-check d-inline-block">
+                                    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+                                    <label class="form-check-label" for="exampleRadios1">
+                                        Alpha
+                                    </label>
+                                </div>
+                            </td>
+                            <td>
+                                <div class="form-group">
+                                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                </div>
+                            </td>
+                        </tr>
+                    <?php } ?>
                 </tbody>
             </table>
         </div>
