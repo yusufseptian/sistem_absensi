@@ -73,6 +73,7 @@ class Login extends BaseController
                 return redirect()->to(base_url('/login'));
             }
             $authData = [
+                'id' => $dt[0]['guru_id'],
                 'nama' => $dt[0]['guru_nama'],
                 'foto' => $dt[0]['guru_foto'],
                 'role' => $dt[0]['guru_role']
@@ -86,6 +87,7 @@ class Login extends BaseController
     }
     public function logout()
     {
+        session()->remove('idKelasAbsensi');
         session()->remove('log_auth');
         return redirect()->to(base_url('/login'));
     }

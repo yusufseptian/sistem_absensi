@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 04 Des 2022 pada 18.05
--- Versi server: 10.4.24-MariaDB
--- Versi PHP: 8.1.6
+-- Waktu pembuatan: 06 Des 2022 pada 15.33
+-- Versi server: 10.4.22-MariaDB
+-- Versi PHP: 8.0.13
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,80 @@ SET time_zone = "+00:00";
 --
 -- Database: `sistem_absensi`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tb_absensi`
+--
+
+CREATE TABLE `tb_absensi` (
+  `absensi_id` int(11) NOT NULL,
+  `ab_id_kelas` int(11) NOT NULL,
+  `ab_created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `ab_created_by` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `tb_absensi`
+--
+
+INSERT INTO `tb_absensi` (`absensi_id`, `ab_id_kelas`, `ab_created_at`, `ab_created_by`) VALUES
+(7, 10, '2022-12-06 14:28:43', 4);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tb_detail_absensi`
+--
+
+CREATE TABLE `tb_detail_absensi` (
+  `dta_id` int(11) NOT NULL,
+  `dta_ab_id` int(11) NOT NULL,
+  `dta_id_siswa` int(11) NOT NULL,
+  `dta_keterangan` enum('H','I','S','A') NOT NULL,
+  `dta_deskripsi` text NOT NULL,
+  `dta_edited_at` datetime DEFAULT NULL,
+  `dta_edited_by` int(11) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `tb_detail_absensi`
+--
+
+INSERT INTO `tb_detail_absensi` (`dta_id`, `dta_ab_id`, `dta_id_siswa`, `dta_keterangan`, `dta_deskripsi`, `dta_edited_at`, `dta_edited_by`) VALUES
+(1, 7, 162, 'H', '', '0000-00-00 00:00:00', 0),
+(2, 7, 163, 'I', '', '0000-00-00 00:00:00', 0),
+(3, 7, 164, 'S', 'Sakit diare', '0000-00-00 00:00:00', 0),
+(4, 7, 165, 'A', '', '0000-00-00 00:00:00', 0),
+(5, 7, 166, 'A', '', '0000-00-00 00:00:00', 0),
+(6, 7, 167, 'A', '', '0000-00-00 00:00:00', 0),
+(7, 7, 168, 'A', '', '0000-00-00 00:00:00', 0),
+(8, 7, 169, 'A', '', '0000-00-00 00:00:00', 0),
+(9, 7, 170, 'A', '', '0000-00-00 00:00:00', 0),
+(10, 7, 171, 'A', '', '0000-00-00 00:00:00', 0),
+(11, 7, 172, 'A', '', '0000-00-00 00:00:00', 0),
+(12, 7, 173, 'A', '', '0000-00-00 00:00:00', 0),
+(13, 7, 174, 'A', '', '0000-00-00 00:00:00', 0),
+(14, 7, 175, 'A', '', '0000-00-00 00:00:00', 0),
+(15, 7, 176, 'A', '', '0000-00-00 00:00:00', 0),
+(16, 7, 177, 'A', '', '0000-00-00 00:00:00', 0),
+(17, 7, 178, 'A', '', '0000-00-00 00:00:00', 0),
+(18, 7, 179, 'A', '', '0000-00-00 00:00:00', 0),
+(19, 7, 180, 'A', '', '0000-00-00 00:00:00', 0),
+(20, 7, 181, 'A', '', '0000-00-00 00:00:00', 0),
+(21, 7, 182, 'A', '', '0000-00-00 00:00:00', 0),
+(22, 7, 183, 'A', '', '0000-00-00 00:00:00', 0),
+(23, 7, 184, 'A', '', '0000-00-00 00:00:00', 0),
+(24, 7, 185, 'A', '', '0000-00-00 00:00:00', 0),
+(25, 7, 186, 'A', '', '0000-00-00 00:00:00', 0),
+(26, 7, 187, 'A', '', '0000-00-00 00:00:00', 0),
+(27, 7, 188, 'A', '', '0000-00-00 00:00:00', 0),
+(28, 7, 189, 'A', '', '0000-00-00 00:00:00', 0),
+(29, 7, 190, 'A', '', '0000-00-00 00:00:00', 0),
+(30, 7, 191, 'A', '', '0000-00-00 00:00:00', 0),
+(31, 7, 192, 'A', '', '0000-00-00 00:00:00', 0),
+(32, 7, 193, 'A', '', '0000-00-00 00:00:00', 0);
 
 -- --------------------------------------------------------
 
@@ -1054,6 +1128,22 @@ CREATE TABLE `tb_wali_kelas` (
 --
 
 --
+-- Indeks untuk tabel `tb_absensi`
+--
+ALTER TABLE `tb_absensi`
+  ADD PRIMARY KEY (`absensi_id`),
+  ADD KEY `ab_id_kelas` (`ab_id_kelas`),
+  ADD KEY `ab_created_by` (`ab_created_by`);
+
+--
+-- Indeks untuk tabel `tb_detail_absensi`
+--
+ALTER TABLE `tb_detail_absensi`
+  ADD PRIMARY KEY (`dta_id`),
+  ADD KEY `dta_ab_id` (`dta_ab_id`),
+  ADD KEY `dta_id_siswa` (`dta_id_siswa`);
+
+--
 -- Indeks untuk tabel `tb_guru`
 --
 ALTER TABLE `tb_guru`
@@ -1127,6 +1217,18 @@ ALTER TABLE `tb_wali_kelas`
 --
 
 --
+-- AUTO_INCREMENT untuk tabel `tb_absensi`
+--
+ALTER TABLE `tb_absensi`
+  MODIFY `absensi_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT untuk tabel `tb_detail_absensi`
+--
+ALTER TABLE `tb_detail_absensi`
+  MODIFY `dta_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
+
+--
 -- AUTO_INCREMENT untuk tabel `tb_guru`
 --
 ALTER TABLE `tb_guru`
@@ -1183,6 +1285,20 @@ ALTER TABLE `tb_wali_kelas`
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
+
+--
+-- Ketidakleluasaan untuk tabel `tb_absensi`
+--
+ALTER TABLE `tb_absensi`
+  ADD CONSTRAINT `tb_absensi_ibfk_1` FOREIGN KEY (`ab_id_kelas`) REFERENCES `tb_kelas` (`kelas_id`),
+  ADD CONSTRAINT `tb_absensi_ibfk_2` FOREIGN KEY (`ab_created_by`) REFERENCES `tb_guru` (`guru_id`);
+
+--
+-- Ketidakleluasaan untuk tabel `tb_detail_absensi`
+--
+ALTER TABLE `tb_detail_absensi`
+  ADD CONSTRAINT `tb_detail_absensi_ibfk_1` FOREIGN KEY (`dta_ab_id`) REFERENCES `tb_absensi` (`absensi_id`),
+  ADD CONSTRAINT `tb_detail_absensi_ibfk_2` FOREIGN KEY (`dta_id_siswa`) REFERENCES `tb_siswa` (`siswa_id`);
 
 --
 -- Ketidakleluasaan untuk tabel `tb_kelas`

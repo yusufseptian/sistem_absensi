@@ -284,14 +284,19 @@
             });
         });
     </script>
-    <!-- Alert Block Access -->
-    <?php if (session('someWrong')) : ?>
-        <script>
-            $(document).ready(function() {
+    <!-- Alert nofification -->
+    <script>
+        $(document).ready(function() {
+            <?php if (session('someWrong')) : ?>
+                // Jika ada pesan kesalahan
                 alert("<?= session('someWrong') ?>");
-            })
-        </script>
-    <?php endif; ?>
+            <?php endif; ?>
+            <?php if (session('someSuccess')) : ?>
+                // Jika ada pesan sukses
+                alert("<?= session('someSuccess') ?>");
+            <?php endif; ?>
+        })
+    </script>
 </body>
 
 </html>

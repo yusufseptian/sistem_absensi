@@ -16,6 +16,29 @@
     <link rel="stylesheet" href="<?= base_url() ?>/assets/plugins/summernote/summernote-bs4.min.css">
     <!-- jQuery -->
     <script src="<?= base_url('assets') ?>/plugins/jquery/jquery.min.js"></script>
+    <!-- DataTables  & Plugins -->
+    <script src="<?= base_url('assets') ?>/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="<?= base_url('assets') ?>/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
+    <script src="<?= base_url('assets') ?>/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="<?= base_url('assets') ?>/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
+    <script src="<?= base_url('assets') ?>/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="<?= base_url('assets') ?>/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+    <script src="<?= base_url('assets') ?>/plugins/jszip/jszip.min.js"></script>
+    <script src="<?= base_url('assets') ?>/plugins/pdfmake/pdfmake.min.js"></script>
+    <script src="<?= base_url('assets') ?>/plugins/pdfmake/vfs_fonts.js"></script>
+    <script src="<?= base_url('assets') ?>/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
+    <script src="<?= base_url('assets') ?>/plugins/datatables-buttons/js/buttons.print.min.js"></script>
+    <script src="<?= base_url('assets') ?>/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+    <script>
+        function setDataTables(selector) {
+            $(selector).DataTable({
+                "responsive": true,
+                "lengthChange": true,
+                "autoWidth": false,
+                // "buttons": ["excel", "pdf", "print", ]
+            }).buttons().container().appendTo(selector + '_wrapper .col-md-6:eq(0)');
+        }
+    </script>
 
 </head>
 
@@ -135,17 +158,21 @@
     <script src="<?= base_url('assets') ?>/dist/js/adminlte.min.js"></script>
     <!-- Summernote -->
     <script src="<?= base_url('assets') ?>/plugins/summernote/summernote-bs4.min.js"></script>
-    <!-- jQuery -->
-    <script src="<?= base_url('assets') ?>/plugins/jquery/jquery.min.js"></script>
 
-    <!-- Alert Block Access -->
-    <?php if (session('someWrong')) : ?>
-        <script>
-            $(document).ready(function() {
+    <!-- Alert nofification -->
+    <script>
+        $(document).ready(function() {
+            <?php if (session('someWrong')) : ?>
+                // Jika ada pesan kesalahan
                 alert("<?= session('someWrong') ?>");
-            })
-        </script>
-    <?php endif; ?>
+            <?php endif; ?>
+            <?php if (session('someSuccess')) : ?>
+                // Jika ada pesan sukses
+                alert("<?= session('someSuccess') ?>");
+            <?php endif; ?>
+        })
+    </script>
+
 </body>
 
 </html>
