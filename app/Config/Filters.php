@@ -4,6 +4,7 @@ namespace Config;
 
 use App\Filters\AdminFilter;
 use App\Filters\AdminTUFilter;
+use App\Filters\PengawasFilter;
 use App\Filters\GuruPiketFilter;
 use App\Filters\LoginFilter;
 use CodeIgniter\Config\BaseConfig;
@@ -30,6 +31,7 @@ class Filters extends BaseConfig
         'login' => LoginFilter::class,
         'admintufilter' => AdminTUFilter::class,
         'gurupiketfilter' => GuruPiketFilter::class,
+        'pengawasfilter' => PengawasFilter::class,
     ];
 
     /**
@@ -52,6 +54,9 @@ class Filters extends BaseConfig
             ],
             'gurupiketfilter' => [
                 'except' => ['/', 'login', 'login/*', 'home', 'siswa', 'siswa/*', 'mapel/', 'mapel/*', 'kelas/', 'kelas/*', 'guru', 'guru/*', 'tahun_ajar', 'tahun_ajar/*']
+            ],
+            'pengawasfilter' => [
+                'except' => ['/', 'login', 'login/*', 'home', 'pengawas/', 'pengawas/*']
             ]
         ],
         'after' => [
