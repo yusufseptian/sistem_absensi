@@ -5,7 +5,7 @@
     <?php foreach ($dtKelas as $dt) : ?>
         <div class="col-3">
             <!-- small box -->
-            <div class="small-box bg-light">
+            <div class="small-box <?= ($dt['absensi']) ? 'bg-success' : 'bg-light' ?>">
                 <div class="inner">
                     <h3><?= $dt['kelas']['kelas_nama'] ?></h3>
                     <h5>Jumlah Data : <?= $dt['jmlSiswa'] ?></h5>
