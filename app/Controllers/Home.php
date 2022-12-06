@@ -19,7 +19,11 @@ class Home extends BaseController
             ];
             return view('guru_piket/dashboard_guru_piket', $data);
         } else {
-            return "Access Dennied";
+            $data = [
+                'title' => 'Absensi',
+                'subtitle' => 'Pengawas',
+            ];
+            return view('pengawas/dashboard_pengawas', $data);
         }
     }
     public function nganu()

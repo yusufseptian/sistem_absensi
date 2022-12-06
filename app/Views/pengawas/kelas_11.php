@@ -1,4 +1,4 @@
-<?= $this->extend('template/t_guru_piket') ?>
+<?= $this->extend('template/t_pengawas') ?>
 <?= $this->section('content') ?>
 
 <div class="row">
@@ -13,7 +13,7 @@
                 <div class="icon">
                     <i class="fas fa-user-graduate"></i>
                 </div>
-                <a href="<?= base_url('gurupiket/absensi' . "/" . $dt['kelas']['kelas_kode']) ?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
+                <a href="<?= base_url('pengawas/absensi' . "/" . $dt['kelas']['kelas_kode']) ?>" class="small-box-footer">More info <i class="fas fa-arrow-circle-right"></i></a>
             </div>
         </div>
     <?php endforeach; ?>

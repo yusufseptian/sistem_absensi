@@ -3,7 +3,7 @@
 
 <div class="row">
     <?php foreach ($dtKelas as $dt) : ?>
-        <div class="col-3">
+        <div class="col-lg-3 col-md-4 col-6">
             <!-- small box -->
             <div class="small-box <?= ($dt['absensi']) ? 'bg-success' : 'bg-light' ?>">
                 <div class="inner">
