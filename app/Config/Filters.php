@@ -4,6 +4,7 @@ namespace Config;
 
 use App\Filters\AdminFilter;
 use App\Filters\AdminTUFilter;
+use App\Filters\Group23;
 use App\Filters\PengawasFilter;
 use App\Filters\GuruPiketFilter;
 use App\Filters\LoginFilter;
@@ -32,6 +33,7 @@ class Filters extends BaseConfig
         'admintufilter' => AdminTUFilter::class,
         'gurupiketfilter' => GuruPiketFilter::class,
         'pengawasfilter' => PengawasFilter::class,
+        'group23' => Group23::class
     ];
 
     /**
@@ -49,15 +51,15 @@ class Filters extends BaseConfig
                 'except' => ['login', 'login/logauth']
             ],
 
-            'admintufilter' => [
-                'except' => ['/', 'login', 'login/*', 'home', 'gurupiket', 'gurupiket/*']
-            ],
-            'gurupiketfilter' => [
-                'except' => ['/', 'login', 'login/*', 'home', 'siswa', 'siswa/*', 'mapel/', 'mapel/*', 'kelas/', 'kelas/*', 'guru', 'guru/*', 'tahun_ajar', 'tahun_ajar/*']
-            ],
-            'pengawasfilter' => [
-                'except' => ['/', 'login', 'login/*', 'home', 'pengawas/', 'pengawas/*']
-            ]
+            // 'admintufilter' => [
+            //     'except' => ['/', 'login', 'login/*', 'home', 'gurupiket', 'gurupiket/*']
+            // ],
+            // 'gurupiketfilter' => [
+            //     'except' => ['/', 'login', 'login/*', 'home', 'siswa', 'siswa/*', 'mapel/', 'mapel/*', 'kelas/', 'kelas/*', 'guru', 'guru/*', 'tahun_ajar', 'tahun_ajar/*']
+            // ],
+            // 'pengawasfilter' => [
+            //     'except' => ['/', 'login', 'login/*', 'home', 'pengawas/', 'pengawas/*']
+            // ]
         ],
         'after' => [
             // 'gurupiketfilter' => ['gurupiket/', 'gurupiket/*'],
@@ -92,5 +94,18 @@ class Filters extends BaseConfig
      *
      * @var array
      */
-    public $filters = [];
+    public $filters = [
+        'admintufilter' => [
+            'before' => ['kelas', 'kelas/*', 'siswa', 'siswa/*', 'mapel', 'mapel/*', 'guru', 'guru/*', 'tahun_ajar', 'tahun_ajar/*']
+        ],
+        'gurupiketfilter' => [
+            'before' => ['gurupiket']
+        ],
+        'pengawasfilter' => [
+            'before' => ['pengawas', 'pengawas/*']
+        ],
+        'group23' => [
+            'before' => ['gurupiket/*']
+        ]
+    ];
 }
