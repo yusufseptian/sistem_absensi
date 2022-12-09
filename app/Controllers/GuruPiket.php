@@ -116,6 +116,10 @@ class GuruPiket extends BaseController
         } else {
             // Else Opsi 2
             $finished = false;
+            if (session('log_auth')['role'] == '3') {
+                session()->setFlashdata('someWrong', 'Data absensi pada kelas ' . $dtKelas['kelas_nama'] . ' belum di rekap');
+                return redirect()->to(base_url('gurupiket/kelas' . $dtKelas['kelas_grade']));
+            }
         }
 
         // cek data siswa berdasarkan kode kelas pada url

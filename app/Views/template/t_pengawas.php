@@ -111,19 +111,19 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= base_url('Pengawas/kelas10') ?>" class="nav-link">
+                            <a href="<?= base_url('gurupiket/kelas10') ?>" class="nav-link">
                                 <i class="nav-icon fas fa-folder"></i>
                                 <p>Kelas 10</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= base_url('Pengawas/kelas11') ?>" class="nav-link">
+                            <a href="<?= base_url('gurupiket/kelas11') ?>" class="nav-link">
                                 <i class="nav-icon fas fa-folder"></i>
                                 <p>Kelas 11</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= base_url('Pengawas/kelas12') ?>" class="nav-link">
+                            <a href="<?= base_url('gurupiket/kelas12') ?>" class="nav-link">
                                 <i class="nav-icon fas fa-folder"></i>
                                 <p>Kelas 12</p>
                             </a>

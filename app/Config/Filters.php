@@ -99,13 +99,14 @@ class Filters extends BaseConfig
             'before' => ['kelas', 'kelas/*', 'siswa', 'siswa/*', 'mapel', 'mapel/*', 'guru', 'guru/*', 'tahun_ajar', 'tahun_ajar/*']
         ],
         'gurupiketfilter' => [
-            'before' => ['gurupiket']
+            'before' => ['gurupiket', 'gurupiket/saveabsensi']
         ],
         'pengawasfilter' => [
             'before' => ['pengawas', 'pengawas/*']
         ],
         'group23' => [
-            'before' => ['gurupiket/*']
+            'before' => ['gurupiket/*'],
+            'except' => ['gurupiket/saveabsensi']
         ]
     ];
 }

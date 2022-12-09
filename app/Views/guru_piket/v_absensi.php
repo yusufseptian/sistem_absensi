@@ -4,7 +4,6 @@
     <div class="card card-primary">
         <div class="card-header">
             <h3 class="card-title">Absensi <?= $subtitle ?></h3>
-
         </div>
         <div class="card-body p-0">
             <form action="<?= base_url('gurupiket/saveabsensi') ?>" method="post">
@@ -20,7 +19,7 @@
                     </thead>
                     <tbody>
                         <?php $no = 1;
-                        if (!$abFinished) :
+                        if (!$abFinished && session('log_auth')['role'] == '2') :
                             foreach ($dtSiswa as $key => $value) { ?>
                                 <tr>
                                     <td><?= $no++ ?></td>
