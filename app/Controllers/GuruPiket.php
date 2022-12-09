@@ -57,7 +57,6 @@ class GuruPiket extends BaseController
 
     public function kelas10()
     {
-        // dd($this->getKelasByGrade(10));
         $data = [
             'title' => 'Absensi',
             'subtitle' => 'Kelas 10',
