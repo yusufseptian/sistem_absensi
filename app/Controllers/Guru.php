@@ -33,10 +33,10 @@ class Guru extends BaseController
         $data = [
             'guru_nip' => $this->request->getPost('guru_nip'),
             'guru_nama' => $this->request->getPost('guru_nama'),
+            'guru_username' => $this->request->getPost('guru_username'),
             'guru_email' => $this->request->getPost('guru_email'),
             'guru_password' => md5($this->request->getPost('guru_password')),
             'guru_role' => $this->request->getPost('guru_role'),
-            'guru_status' => $this->request->getPost('guru_status'),
             'guru_foto' => $nama_file,
         ];
         $file->move('foto_guru/', $nama_file);
@@ -55,10 +55,10 @@ class Guru extends BaseController
                 'guru_id' => $guru_id,
                 'guru_nip' => $this->request->getPost('guru_nip'),
                 'guru_nama' => $this->request->getPost('guru_nama'),
+                'guru_username' => $this->request->getPost('guru_username'),
                 'guru_email' => $this->request->getPost('guru_email'),
                 'guru_password' => md5($this->request->getPost('guru_password')),
                 'guru_role' => $this->request->getPost('guru_role'),
-                'guru_status' => $this->request->getPost('guru_status'),
             ];
             $this->Model_guru->update($guru_id, $data);
         } else {
@@ -72,10 +72,10 @@ class Guru extends BaseController
                 'guru_id' => $guru_id,
                 'guru_nip' => $this->request->getPost('guru_nip'),
                 'guru_nama' => $this->request->getPost('guru_nama'),
+                'guru_username' => $this->request->getPost('guru_username'),
                 'guru_email' => $this->request->getPost('guru_email'),
                 'guru_password' => $this->request->getPost('guru_password'),
                 'guru_role' => $this->request->getPost('guru_role'),
-                'guru_status' => $this->request->getPost('guru_status'),
                 'guru_foto' => $nama_file,
             ];
             $file->move('foto_guru/', $nama_file);

@@ -21,7 +21,6 @@ class Model_guru extends Model
         'guru_password',
         'guru_foto',
         'guru_role',
-        'guru_status',
     ];
     public function getDataGuru()
     {

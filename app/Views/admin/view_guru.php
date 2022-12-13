@@ -44,9 +44,9 @@
                         <th width="70px">#</th>
                         <th>NIP</th>
                         <th>Nama</th>
+                        <th>Username</th>
                         <th>Email</th>
                         <th>Role</th>
-                        <th>Status</th>
                         <th class="text-center">Foto</th>
                         <th width="100px">Action</th>
                     </tr>
@@ -58,9 +58,9 @@
                             <td><?= $no++ ?></td>
                             <td><?= $value['guru_nip'] ?></td>
                             <td><?= $value['guru_nama'] ?></td>
+                            <td><?= $value['guru_username'] ?></td>
                             <td><?= $value['guru_email'] ?></td>
                             <td><?= $value['role'] ?></td>
-                            <td><?= $value['guru_status'] ?></td>
                             <td class="text-center">
                                 <img class="img-fluid shadow" src="<?= base_url('foto_guru/' . $value['guru_foto']) ?>" width="200px">
                             </td>
@@ -101,6 +101,10 @@
                     <input name="guru_nama" class="form-control" placeholder="Keterangan" required>
                 </div>
                 <div class="form-group">
+                    <label>Username</label>
+                    <input name="guru_username" class="form-control" placeholder="Keterangan" required>
+                </div>
+                <div class="form-group">
                     <label>Email</label>
                     <input name="guru_email" class="form-control" placeholder="Keterangan" required>
                 </div>
@@ -117,10 +121,7 @@
                         <?php endforeach; ?>
                     </select>
                 </div>
-                <div class="form-group">
-                    <label>Status</label>
-                    <input name="guru_status" class="form-control" placeholder="Keterangan" required>
-                </div>
+
                 <div class="form-group">
                     <label>Foto Guru</label>
                     <input id="preview_gambar" type="file" accept="image/*" name="guru_foto" class="form-control" required>
@@ -164,6 +165,10 @@
                         <input name="guru_nama" class="form-control" value="<?= $value['guru_nama'] ?>" placeholder="Keterangan" required>
                     </div>
                     <div class="form-group">
+                        <label>Username</label>
+                        <input name="guru_username" class="form-control" value="<?= $value['guru_username'] ?>" placeholder="Keterangan" required>
+                    </div>
+                    <div class="form-group">
                         <label>Email</label>
                         <input name="guru_email" class="form-control" value="<?= $value['guru_email'] ?>" placeholder="Keterangan" required>
                     </div>
@@ -176,10 +181,6 @@
                         <input name="guru_role" class="form-control" value="<?= $value['guru_role'] ?>" placeholder="Keterangan" required>
                     </div>
 
-                    <div class="form-group">
-                        <label>Status</label>
-                        <input name="guru_status" class="form-control" value="<?= $value['guru_status'] ?>" placeholder="Keterangan" required>
-                    </div>
                     <div class="form-group">
                         <label>Ganti Foto Guru</label>
                         <input id="preview_gambar" type="file" accept="image/*" name="guru_foto" class="form-control">

@@ -32,20 +32,20 @@ class Tahun_ajar extends BaseController
         return redirect()->to('Tahun_ajar');
     }
 
-    public function editData($th_id)
-    {
-        $data = [
-            'th_ajaran' => $this->request->getPost('th_ajaran'),
-        ];
-        $this->Model_tahun_ajar->update($th_id, $data);
-        session()->setFlashdata('edit', 'Data berhasil diedit..!!');
-        return redirect()->to('Tahun_ajar');
-    }
+    // public function editData($th_id)
+    // {
+    //     $data = [
+    //         'th_ajaran' => $this->request->getPost('th_ajaran'),
+    //     ];
+    //     $this->Model_tahun_ajar->update($th_id, $data);
+    //     session()->setFlashdata('edit', 'Data berhasil diedit..!!');
+    //     return redirect()->to('Tahun_ajar');
+    // }
 
-    public function deleteData($th_id)
-    {
-        $this->Model_tahun_ajar->delete($th_id);
-        session()->setFlashdata('delete', 'Data berhasil dihapus..!!');
-        return redirect()->to('Tahun_ajar');
-    }
+    // public function deleteData($th_id)
+    // {
+    //     $this->Model_tahun_ajar->delete($th_id);
+    //     session()->setFlashdata('delete', 'Data berhasil dihapus..!!');
+    //     return redirect()->to('Tahun_ajar');
+    // }
 }

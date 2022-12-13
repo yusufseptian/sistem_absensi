@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 09 Des 2022 pada 21.08
--- Versi server: 10.4.22-MariaDB
--- Versi PHP: 8.0.13
+-- Waktu pembuatan: 13 Des 2022 pada 14.32
+-- Versi server: 10.4.24-MariaDB
+-- Versi PHP: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -34,6 +34,13 @@ CREATE TABLE `tb_absensi` (
   `ab_created_by` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data untuk tabel `tb_absensi`
+--
+
+INSERT INTO `tb_absensi` (`absensi_id`, `ab_id_kelas`, `ab_created_at`, `ab_created_by`) VALUES
+(13, 10, '2022-12-13 13:02:33', 4);
+
 -- --------------------------------------------------------
 
 --
@@ -50,6 +57,44 @@ CREATE TABLE `tb_detail_absensi` (
   `dta_edited_by` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data untuk tabel `tb_detail_absensi`
+--
+
+INSERT INTO `tb_detail_absensi` (`dta_id`, `dta_ab_id`, `dta_id_siswa`, `dta_keterangan`, `dta_deskripsi`, `dta_edited_at`, `dta_edited_by`) VALUES
+(1, 13, 162, 'A', '', '0000-00-00 00:00:00', 0),
+(2, 13, 163, 'A', '', '0000-00-00 00:00:00', 0),
+(3, 13, 164, 'A', '', '0000-00-00 00:00:00', 0),
+(4, 13, 165, 'A', '', '0000-00-00 00:00:00', 0),
+(5, 13, 166, 'A', '', '0000-00-00 00:00:00', 0),
+(6, 13, 167, 'A', '', '0000-00-00 00:00:00', 0),
+(7, 13, 168, 'A', '', '0000-00-00 00:00:00', 0),
+(8, 13, 169, 'A', '', '0000-00-00 00:00:00', 0),
+(9, 13, 170, 'A', '', '0000-00-00 00:00:00', 0),
+(10, 13, 171, 'A', '', '0000-00-00 00:00:00', 0),
+(11, 13, 172, 'A', '', '0000-00-00 00:00:00', 0),
+(12, 13, 173, 'A', '', '0000-00-00 00:00:00', 0),
+(13, 13, 174, 'A', '', '0000-00-00 00:00:00', 0),
+(14, 13, 175, 'A', '', '0000-00-00 00:00:00', 0),
+(15, 13, 176, 'A', '', '0000-00-00 00:00:00', 0),
+(16, 13, 177, 'A', '', '0000-00-00 00:00:00', 0),
+(17, 13, 178, 'A', '', '0000-00-00 00:00:00', 0),
+(18, 13, 179, 'A', '', '0000-00-00 00:00:00', 0),
+(19, 13, 180, 'A', '', '0000-00-00 00:00:00', 0),
+(20, 13, 181, 'A', '', '0000-00-00 00:00:00', 0),
+(21, 13, 182, 'A', '', '0000-00-00 00:00:00', 0),
+(22, 13, 183, 'A', '', '0000-00-00 00:00:00', 0),
+(23, 13, 184, 'A', '', '0000-00-00 00:00:00', 0),
+(24, 13, 185, 'A', '', '0000-00-00 00:00:00', 0),
+(25, 13, 186, 'A', '', '0000-00-00 00:00:00', 0),
+(26, 13, 187, 'A', '', '0000-00-00 00:00:00', 0),
+(27, 13, 188, 'A', '', '0000-00-00 00:00:00', 0),
+(28, 13, 189, 'A', '', '0000-00-00 00:00:00', 0),
+(29, 13, 190, 'A', '', '0000-00-00 00:00:00', 0),
+(30, 13, 191, 'A', '', '0000-00-00 00:00:00', 0),
+(31, 13, 192, 'A', '', '0000-00-00 00:00:00', 0),
+(32, 13, 193, 'A', '', '0000-00-00 00:00:00', 0);
+
 -- --------------------------------------------------------
 
 --
@@ -60,11 +105,11 @@ CREATE TABLE `tb_guru` (
   `guru_id` int(11) NOT NULL,
   `guru_nip` varchar(50) NOT NULL,
   `guru_nama` varchar(100) NOT NULL,
+  `guru_username` varchar(50) NOT NULL,
   `guru_email` varchar(50) NOT NULL,
   `guru_password` varchar(225) NOT NULL,
   `guru_foto` varchar(100) NOT NULL,
   `guru_role` int(11) NOT NULL,
-  `guru_status` varchar(20) NOT NULL,
   `created_at` datetime NOT NULL,
   `created_by` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -73,11 +118,11 @@ CREATE TABLE `tb_guru` (
 -- Dumping data untuk tabel `tb_guru`
 --
 
-INSERT INTO `tb_guru` (`guru_id`, `guru_nip`, `guru_nama`, `guru_email`, `guru_password`, `guru_foto`, `guru_role`, `guru_status`, `created_at`, `created_by`) VALUES
-(2, '123526', 'hares', 'berrypop@gmail.com', '529ca8050a00180790cf88b63468826a', '1669654524_73c77dc75c8eecb27285.png', 1, '1', '0000-00-00 00:00:00', 0),
-(3, '12345673', 'Mustok', 'hehe@gmail.com', 'd1a6f896a111b237d8ff8dc4ac623809', '1669654319_b3b34130e360f6c2ba48.png', 3, '1', '0000-00-00 00:00:00', 0),
-(4, '1238932', 'Sutikno', 'haiyoiki@gmail.com', 'd1a6f896a111b237d8ff8dc4ac623809', '1669654510_4c77023c7f4368825e5d.png', 2, '1', '0000-00-00 00:00:00', 0),
-(5, '1341873', 'Muhammad Bledek', 'opoyo@gmail.com', 'bingung', '1669654616_8dd31be9193efb7c5047.png', 3, '1', '0000-00-00 00:00:00', 0);
+INSERT INTO `tb_guru` (`guru_id`, `guru_nip`, `guru_nama`, `guru_username`, `guru_email`, `guru_password`, `guru_foto`, `guru_role`, `created_at`, `created_by`) VALUES
+(2, '123526', 'hares', 'harits', 'berrypop@gmail.com', '529ca8050a00180790cf88b63468826a', '1669654524_73c77dc75c8eecb27285.png', 1, '0000-00-00 00:00:00', 0),
+(3, '12345673', 'Mustok', 'mus', 'hehe@gmail.com', 'd1a6f896a111b237d8ff8dc4ac623809', '1669654319_b3b34130e360f6c2ba48.png', 3, '0000-00-00 00:00:00', 0),
+(4, '1238932', 'Sutikno', 'sutikno', 'haiyoiki@gmail.com', 'd1a6f896a111b237d8ff8dc4ac623809', '1669654510_4c77023c7f4368825e5d.png', 2, '0000-00-00 00:00:00', 0),
+(5, '1341873', 'Muhammad Bledek', 'guntur', 'opoyo@gmail.com', 'bingung', '1669654616_8dd31be9193efb7c5047.png', 3, '0000-00-00 00:00:00', 0);
 
 -- --------------------------------------------------------
 
@@ -1175,13 +1220,13 @@ ALTER TABLE `tb_wali_kelas`
 -- AUTO_INCREMENT untuk tabel `tb_absensi`
 --
 ALTER TABLE `tb_absensi`
-  MODIFY `absensi_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `absensi_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_detail_absensi`
 --
 ALTER TABLE `tb_detail_absensi`
-  MODIFY `dta_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `dta_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_guru`

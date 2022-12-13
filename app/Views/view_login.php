@@ -30,7 +30,7 @@
                     <div class="login-logo">
                         <img src="<?= base_url() ?>/assets/sma.png" class="img-size-64">
                     </div>
-                    <H3 class="text-center">SMA 1 HARGEULIS</H3>
+                    <H3 class="text-center">SMA 1 HAURGEULIS</H3>
                 </div>
                 <br>
                 <form action="<?= base_url('login/logauth'); ?>" method="post">
