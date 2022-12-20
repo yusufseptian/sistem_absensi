@@ -38,34 +38,36 @@
                 echo '</h6></div>';
             }
             ?>
-            <table class="table table-sm" id="mapelTables">
-                <thead>
-                    <tr>
-                        <th width="70px">#</th>
-                        <th>Kode</th>
-                        <th>Mata Pelajaran</th>
-                        <th width="100px">Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php $no = 1;
-                    foreach ($mapel as $key => $value) { ?>
+            <div class="p-2">
+                <table class="table table-sm" id="mapelTables">
+                    <thead>
                         <tr>
-                            <td><?= $no++ ?></td>
-                            <td><?= $value['mapel_kode'] ?></td>
-                            <td><?= $value['mapel_nama'] ?></td>
-                            <td>
-                                <button class="btn btn-xs btn-flat btn-warning" data-toggle="modal" data-target="#edit<?= $value['mapel_id'] ?>">
-                                    <i class="fas fa-pen"></i>
-                                </button>
-                                <button class="btn btn-xs btn-flat btn-danger" data-toggle="modal" data-target="#delete<?= $value['mapel_id'] ?>">
-                                    <i class="fas fa-trash"></i>
-                                </button>
-                            </td>
+                            <th width="70px">#</th>
+                            <th>Kode</th>
+                            <th>Mata Pelajaran</th>
+                            <th width="100px">Action</th>
                         </tr>
-                    <?php } ?>
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        <?php $no = 1;
+                        foreach ($mapel as $key => $value) { ?>
+                            <tr>
+                                <td><?= $no++ ?></td>
+                                <td><?= $value['mapel_kode'] ?></td>
+                                <td><?= $value['mapel_nama'] ?></td>
+                                <td>
+                                    <button class="btn btn-xs btn-flat btn-warning" data-toggle="modal" data-target="#edit<?= $value['mapel_id'] ?>">
+                                        <i class="fas fa-pen"></i>
+                                    </button>
+                                    <button class="btn btn-xs btn-flat btn-danger" data-toggle="modal" data-target="#delete<?= $value['mapel_id'] ?>">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        <?php } ?>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>

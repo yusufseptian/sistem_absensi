@@ -38,40 +38,42 @@
                 echo '</h6></div>';
             }
             ?>
-            <table class="table table-sm" id="kelasTables">
-                <thead>
-                    <tr>
-                        <th width="70px">#</th>
-                        <th>Kode Kelas</th>
-                        <th>Kelas</th>
-                        <th>Tingkat Kelas</th>
-                        <th>Wali Kelas</th>
-                        <th>Tahun Ajaran</th>
-                        <th width="100px">Action</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php $no = 1;
-                    foreach ($kelas as $key => $value) { ?>
+            <div class="p-2">
+                <table class="table table-sm" id="kelasTables">
+                    <thead>
                         <tr>
-                            <td><?= $no++ ?></td>
-                            <td><?= $value['kelas_kode'] ?></td>
-                            <td><?= $value['kelas_nama'] ?></td>
-                            <td><?= $value['kelas_grade'] ?></td>
-                            <td><?= $value['guru_nama'] ?></td>
-                            <td><?= $value['th_ajaran'] ?></td>
-                            <td>
-                                <button class="btn btn-xs btn-flat btn-warning" data-toggle="modal" data-target="#edit<?= $value['kelas_id'] ?>">
-                                    <i class="fas fa-pen"></i>
-                                </button>
-                                <button class="btn btn-xs btn-flat btn-danger" data-toggle="modal" data-target="#delete<?= $value['kelas_id'] ?>">
-                                    <i class="fas fa-trash"></i>
-                                </button>
-                            </td>
+                            <th width="70px">#</th>
+                            <th>Kode Kelas</th>
+                            <th>Kelas</th>
+                            <th>Tingkat Kelas</th>
+                            <th>Wali Kelas</th>
+                            <th>Tahun Ajaran</th>
+                            <th width="100px">Action</th>
                         </tr>
-                    <?php } ?>
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        <?php $no = 1;
+                        foreach ($kelas as $key => $value) { ?>
+                            <tr>
+                                <td><?= $no++ ?></td>
+                                <td><?= $value['kelas_kode'] ?></td>
+                                <td><?= $value['kelas_nama'] ?></td>
+                                <td><?= $value['kelas_grade'] ?></td>
+                                <td><?= $value['guru_nama'] ?></td>
+                                <td><?= $value['th_ajaran'] ?></td>
+                                <td>
+                                    <button class="btn btn-xs btn-flat btn-warning" data-toggle="modal" data-target="#edit<?= $value['kelas_id'] ?>">
+                                        <i class="fas fa-pen"></i>
+                                    </button>
+                                    <button class="btn btn-xs btn-flat btn-danger" data-toggle="modal" data-target="#delete<?= $value['kelas_id'] ?>">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        <?php } ?>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>

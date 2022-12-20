@@ -69,11 +69,14 @@
                                 </tr>
                             <?php } ?>
                         <?php endif; ?>
+
+                        <?php if (!$abFinished) : ?>
+                            <td class="text-center" colspan="5">
+                                <input type="submit" value="Simpan" class="btn btn-success px-5">
+                            </td>
+                        <?php endif; ?>
                     </tbody>
                 </table>
-                <?php if (!$abFinished) : ?>
-                    <input type="submit" value="Simpan" class="btn btn-success">
-                <?php endif; ?>
             </form>
         </div>
     </div>
