@@ -7,7 +7,7 @@
         <a href="<?= base_url('siswa') ?>" class="small-box bg-yellow">
             <div class="inner">
                 <h3>Siswa</h3>
-                <h5>Jumlah Data : 12</h5>
+                <h5>Jumlah Data : <?= $totSiswa ?></h5>
             </div>
             <div class="icon">
                 <i class="fas fa-user-graduate"></i>
@@ -21,7 +21,7 @@
         <a href="<?= base_url('mapel') ?>" class="small-box bg-olive">
             <div class="inner">
                 <h3>Mata Pelajaran</h3>
-                <h5>Jumlah Data : 12</h5>
+                <h5>Jumlah Data : <?= $totMapel ?></h5>
             </div>
             <div class="icon">
                 <i class="fas fa-book-open"></i>
@@ -35,7 +35,7 @@
         <a href="<?= base_url('guru') ?>" class="small-box bg-red">
             <div class="inner">
                 <h3>Guru</h3>
-                <h5>Jumlah Data : 12</h5>
+                <h5>Jumlah Data : <?= $totGuru ?></h5>
             </div>
             <div class="icon">
                 <i class="fas fa-chalkboard-teacher"></i>
@@ -46,10 +46,10 @@
 
     <div class="col-lg-4 col-4">
         <!-- small box -->
-        <a href="<?= base_url('tahun') ?>" class="small-box bg-orange">
+        <a href="<?= base_url('kelas') ?>" class="small-box bg-orange">
             <div class="inner">
                 <h3>Kelas</h3>
-                <h5>Jumlah Data : 12</h5>
+                <h5>Jumlah Data : <?= $totKelas ?></h5>
             </div>
             <div class="icon">
                 <i class="fas fa-school"></i>
@@ -63,7 +63,7 @@
         <a href="<?= base_url('tahun_ajar') ?>" class="small-box bg-blue">
             <div class="inner">
                 <h3>Tahun Ajaran</h3>
-                <h5>Jumlah Data : 12</h5>
+                <h5>Jumlah Data : <?= $totTahunAjar ?></h5>
             </div>
             <div class="icon">
                 <i class="fas fa-graduation-cap"></i>

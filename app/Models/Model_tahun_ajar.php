@@ -14,4 +14,9 @@ class Model_tahun_ajar extends Model
     protected $returnType     = 'array';
 
     protected $allowedFields = ['th_id', 'th_ajaran'];
+
+    public function totalTahunAjar()
+    {
+        return $this->db->table('tb_tahun_ajaran')->countAllResults();
+    }
 }

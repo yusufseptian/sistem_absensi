@@ -24,10 +24,16 @@ class Model_siswa extends Model
         'siswa_th_angkatan',
         'siswa_id_kelas',
     ];
+
     public function getKelasSiswa()
     {
         return $this->db->table('tb_siswa')
             ->join('tb_kelas', 'tb_kelas.kelas_id=tb_siswa.siswa_id_kelas')
             ->get()->getResultArray();
+    }
+
+    public function totalSiswa()
+    {
+        return $this->db->table('tb_siswa')->countAllResults();
     }
 }

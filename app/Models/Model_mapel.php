@@ -14,4 +14,9 @@ class Model_mapel extends Model
     protected $returnType     = 'array';
 
     protected $allowedFields = ['mapel_id', 'mapel_kode', 'mapel_nama'];
+
+    public function totalMapel()
+    {
+        return $this->db->table('tb_mapel')->countAllResults();
+    }
 }
