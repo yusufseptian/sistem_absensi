@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 13 Des 2022 pada 14.32
+-- Waktu pembuatan: 25 Des 2022 pada 11.08
 -- Versi server: 10.4.24-MariaDB
 -- Versi PHP: 8.1.6
 
@@ -40,6 +40,21 @@ CREATE TABLE `tb_absensi` (
 
 INSERT INTO `tb_absensi` (`absensi_id`, `ab_id_kelas`, `ab_created_at`, `ab_created_by`) VALUES
 (13, 10, '2022-12-13 13:02:33', 4);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tb_absensi_ujian`
+--
+
+CREATE TABLE `tb_absensi_ujian` (
+  `id_au` int(11) NOT NULL,
+  `id_siswa` int(11) NOT NULL,
+  `keterangan` enum('H','I','S','A') NOT NULL,
+  `deksripsi` text NOT NULL,
+  `id_jadwal` int(11) NOT NULL,
+  `id_ruangan` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -127,6 +142,20 @@ INSERT INTO `tb_guru` (`guru_id`, `guru_nip`, `guru_nama`, `guru_username`, `gur
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `tb_jadwal_ujian`
+--
+
+CREATE TABLE `tb_jadwal_ujian` (
+  `id_ju` int(11) NOT NULL,
+  `tipe_ujian` varchar(10) NOT NULL,
+  `id_mapel` int(11) NOT NULL,
+  `id_th_ajaran` int(11) NOT NULL,
+  `tanggal_ujian` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `tb_kelas`
 --
 
@@ -180,6 +209,7 @@ CREATE TABLE `tb_mapel` (
   `mapel_id` int(11) NOT NULL,
   `mapel_kode` varchar(100) NOT NULL,
   `mapel_nama` varchar(100) NOT NULL,
+  `mapel_kelas` varchar(10) NOT NULL,
   `created_by` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -187,9 +217,9 @@ CREATE TABLE `tb_mapel` (
 -- Dumping data untuk tabel `tb_mapel`
 --
 
-INSERT INTO `tb_mapel` (`mapel_id`, `mapel_kode`, `mapel_nama`, `created_by`) VALUES
-(2, '113', 'matematika diskrit', 0),
-(3, '112', 'nganu', 0);
+INSERT INTO `tb_mapel` (`mapel_id`, `mapel_kode`, `mapel_nama`, `mapel_kelas`, `created_by`) VALUES
+(2, '113', 'matematika diskrit', '', 0),
+(3, '112', 'nganu', '', 0);
 
 -- --------------------------------------------------------
 
@@ -213,6 +243,19 @@ CREATE TABLE `tb_mengajar` (
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `tb_pengawas_ujian`
+--
+
+CREATE TABLE `tb_pengawas_ujian` (
+  `id_pu` int(11) NOT NULL,
+  `id_jadwal` int(11) NOT NULL,
+  `id_guru` int(11) NOT NULL,
+  `id_ruangan` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `tb_role`
 --
 
@@ -229,6 +272,38 @@ INSERT INTO `tb_role` (`role_id`, `role`) VALUES
 (1, 'Administrator'),
 (2, 'Guru'),
 (3, 'Guru Piket');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tb_ruangan`
+--
+
+CREATE TABLE `tb_ruangan` (
+  `ruang_id` int(11) NOT NULL,
+  `ruang_nama` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `tb_ruangan`
+--
+
+INSERT INTO `tb_ruangan` (`ruang_id`, `ruang_nama`) VALUES
+(1, '01');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `tb_ruang_ujian`
+--
+
+CREATE TABLE `tb_ruang_ujian` (
+  `ru_id` int(11) NOT NULL,
+  `ruang_id` int(11) NOT NULL,
+  `siswa_id` int(11) NOT NULL,
+  `tipe_ujian` varchar(10) NOT NULL,
+  `id_th_ajaran` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -1136,6 +1211,12 @@ ALTER TABLE `tb_absensi`
   ADD KEY `ab_created_by` (`ab_created_by`);
 
 --
+-- Indeks untuk tabel `tb_absensi_ujian`
+--
+ALTER TABLE `tb_absensi_ujian`
+  ADD PRIMARY KEY (`id_au`);
+
+--
 -- Indeks untuk tabel `tb_detail_absensi`
 --
 ALTER TABLE `tb_detail_absensi`
@@ -1149,6 +1230,12 @@ ALTER TABLE `tb_detail_absensi`
 ALTER TABLE `tb_guru`
   ADD PRIMARY KEY (`guru_id`),
   ADD KEY `created_by` (`created_by`);
+
+--
+-- Indeks untuk tabel `tb_jadwal_ujian`
+--
+ALTER TABLE `tb_jadwal_ujian`
+  ADD PRIMARY KEY (`id_ju`);
 
 --
 -- Indeks untuk tabel `tb_kelas`
@@ -1178,10 +1265,28 @@ ALTER TABLE `tb_mengajar`
   ADD KEY `id_tahun_ajaran` (`id_tahun_ajaran`);
 
 --
+-- Indeks untuk tabel `tb_pengawas_ujian`
+--
+ALTER TABLE `tb_pengawas_ujian`
+  ADD PRIMARY KEY (`id_pu`);
+
+--
 -- Indeks untuk tabel `tb_role`
 --
 ALTER TABLE `tb_role`
   ADD PRIMARY KEY (`role_id`);
+
+--
+-- Indeks untuk tabel `tb_ruangan`
+--
+ALTER TABLE `tb_ruangan`
+  ADD PRIMARY KEY (`ruang_id`);
+
+--
+-- Indeks untuk tabel `tb_ruang_ujian`
+--
+ALTER TABLE `tb_ruang_ujian`
+  ADD PRIMARY KEY (`ru_id`);
 
 --
 -- Indeks untuk tabel `tb_semester`
@@ -1223,6 +1328,12 @@ ALTER TABLE `tb_absensi`
   MODIFY `absensi_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
+-- AUTO_INCREMENT untuk tabel `tb_absensi_ujian`
+--
+ALTER TABLE `tb_absensi_ujian`
+  MODIFY `id_au` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT untuk tabel `tb_detail_absensi`
 --
 ALTER TABLE `tb_detail_absensi`
@@ -1233,6 +1344,12 @@ ALTER TABLE `tb_detail_absensi`
 --
 ALTER TABLE `tb_guru`
   MODIFY `guru_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT untuk tabel `tb_jadwal_ujian`
+--
+ALTER TABLE `tb_jadwal_ujian`
+  MODIFY `id_ju` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_kelas`
@@ -1253,10 +1370,28 @@ ALTER TABLE `tb_mengajar`
   MODIFY `id_mengajar` int(11) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT untuk tabel `tb_pengawas_ujian`
+--
+ALTER TABLE `tb_pengawas_ujian`
+  MODIFY `id_pu` int(11) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT untuk tabel `tb_role`
 --
 ALTER TABLE `tb_role`
   MODIFY `role_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT untuk tabel `tb_ruangan`
+--
+ALTER TABLE `tb_ruangan`
+  MODIFY `ruang_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT untuk tabel `tb_ruang_ujian`
+--
+ALTER TABLE `tb_ruang_ujian`
+  MODIFY `ru_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT untuk tabel `tb_semester`
