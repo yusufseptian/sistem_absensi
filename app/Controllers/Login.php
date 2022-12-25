@@ -65,7 +65,7 @@ class Login extends BaseController
 
         if ($valid) {
             $tbAkun = $this->db->table('tb_guru');
-            $tbAkun->where('guru_email', $username);
+            $tbAkun->where('guru_username', $username);
             $tbAkun->where('guru_password', md5($password));
             $dt = $tbAkun->get()->getResultArray();
             if (count($dt) != 1) {
