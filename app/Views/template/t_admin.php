@@ -180,7 +180,7 @@
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="<?= base_url('') ?>" class="nav-link">
+                                    <a href="<?= base_url('ruangan') ?>" class="nav-link">
                                         <i class="nav-icon fa fa-door-open"></i>
                                         <p>Ruang Ujian</p>
                                     </a>
