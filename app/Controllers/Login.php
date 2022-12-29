@@ -87,6 +87,7 @@ class Login extends BaseController
     }
     public function logout()
     {
+        session()->remove('log_ruangan');
         session()->remove('idKelasAbsensi');
         session()->remove('log_auth');
         return redirect()->to(base_url('/login'));

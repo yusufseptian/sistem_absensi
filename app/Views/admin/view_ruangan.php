@@ -55,12 +55,12 @@
                                 <td><?= $no++ ?></td>
                                 <td><?= $value['ruang_nama'] ?></td>
                                 <td>
-                                    <button class="btn btn-m btn-flat btn-success" data-toggle="modal" data-target="#edit<?= $value['ruang_id'] ?>">
+                                    <a class="btn btn-m btn-flat btn-success" href="<?= base_url('ruangan/uas/') . "/" . $value['ruang_id'] ?>">
                                         UAS
-                                    </button>
-                                    <button class="btn btn-m btn-flat btn-primary" data-toggle="modal" data-target="#delete<?= $value['ruang_id'] ?>">
+                                    </a>
+                                    <a class="btn btn-m btn-flat btn-primary" href="<?= base_url('ruangan/uts/') . "/" . $value['ruang_id'] ?>">
                                         UTS
-                                    </button>
+                                    </a>
                                 </td>
                                 <td>
                                     <button class="btn btn-xs btn-flat btn-warning" data-toggle="modal" data-target="#edit<?= $value['ruang_id'] ?>">

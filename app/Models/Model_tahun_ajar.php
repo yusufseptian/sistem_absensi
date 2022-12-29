@@ -19,4 +19,12 @@ class Model_tahun_ajar extends Model
     {
         return $this->db->table('tb_tahun_ajaran')->countAllResults();
     }
+
+    public function newTahunAjar()
+    {
+        if ($this->totalTahunAjar() == 0) {
+            return null;
+        }
+        return $this->db->table($this->table)->orderBy('th_id', 'desc')->get()->getResultArray()[0];
+    }
 }

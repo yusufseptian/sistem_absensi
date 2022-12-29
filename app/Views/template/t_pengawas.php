@@ -160,18 +160,7 @@
     <script src="<?= base_url('assets') ?>/plugins/summernote/summernote-bs4.min.js"></script>
 
     <!-- Alert nofification -->
-    <script>
-        $(document).ready(function() {
-            <?php if (session('someWrong')) : ?>
-                // Jika ada pesan kesalahan
-                alert("<?= session('someWrong') ?>");
-            <?php endif; ?>
-            <?php if (session('someSuccess')) : ?>
-                // Jika ada pesan sukses
-                alert("<?= session('someSuccess') ?>");
-            <?php endif; ?>
-        })
-    </script>
+    <?= $this->include('template/partial_/notify'); ?>
 
 </body>
 

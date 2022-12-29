@@ -54,9 +54,9 @@
                         foreach ($ruang_ujian as $key => $value) { ?>
                             <tr>
                                 <td><?= $no++ ?></td>
-                                <td>nis</td>
-                                <td>nama kelas</td>
-                                <td>nama siswa</td>
+                                <td><?= $value['siswa_nis'] ?></td>
+                                <td><?= $value['kelas_nama'] ?></td>
+                                <td><?= $value['siswa_nama'] ?></td>
                                 <td>
                                     <button class="btn btn-xs btn-flat btn-warning" data-toggle="modal" data-target="#edit<?= $value['ru_id'] ?>">
                                         <i class="fas fa-pen"></i>
@@ -72,6 +72,31 @@
             </div>
         </div>
     </div>
+</div>
+<!-- Modal Add siswa -->
+<div class="modal fade" id="add" tabindex="-1" aria-labelledby="addLabel" aria-hidden="true">
+    <form action="<?= base_url('ruangan/addpesertaujian') ?>" method="post">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="addLabel">Penambahan Peserta Ujian</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <label for="txtNIS" class="form-label">NIS</label>
+                        <input type="text" class="form-control" id="txtNIS" name="txtNIS" placeholder="Masukan NIS Siswa" required>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-primary">Tambah</button>
+                </div>
+            </div>
+        </div>
+    </form>
 </div>
 
 <script>
