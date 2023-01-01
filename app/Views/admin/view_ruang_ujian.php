@@ -58,8 +58,7 @@
                                 <td><?= $value['kelas_nama'] ?></td>
                                 <td><?= $value['siswa_nama'] ?></td>
                                 <td class="text-center">
-
-                                    <button class="btn btn-xs btn-flat btn-danger" data-toggle="modal" data-target="#delete<?= $value['ru_id'] ?>">
+                                    <button class="btn btn-xs btn-flat btn-danger" data-toggle="modal" data-target="#delete" onclick="setIdDelete('<?= $value['ru_id'] ?>','<?= $value['siswa_nama'] ?>')">
                                         <i class="fas fa-trash"></i>
                                     </button>
                                 </td>
@@ -96,35 +95,42 @@
         </div>
     </form>
 </div>
-<?php foreach ($ruang_ujian as $key => $value) { ?>
-    <div class="modal fade" id="delete<?= $value['ru_id'] ?>">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header bg-danger">
-                    <h4 class="modal-title">Hapus Banner</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    Apakah Anda ingin menghapus <b><?= $value['siswa_nama'] ?></b>?
-                </div>
-                <div class="modal-footer justify-content-between">
-                    <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Tutup</button>
-                    <a href="<?= base_url('Ruangan/deletesiswa/' . $value['ru_id']) ?>" class="btn btn-danger btn-sm">Hapus</a>
-                </div>
+<div class="modal fade" id="delete">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-danger">
+                <h4 class="modal-title">Hapus Banner</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
-            <!-- /.modal-content -->
+            <div class="modal-body">
+                Apakah Anda ingin menghapus <b id="lblNameDelete"></b>?
+            </div>
+            <div class="modal-footer justify-content-between">
+                <button type="button" class="btn btn-default btn-sm" data-dismiss="modal" onclick="removeIdDelete()">Tutup</button>
+                <a href="" id="linkDelete" class="btn btn-danger btn-sm">Hapus</a>
+            </div>
         </div>
-        <!-- /.modal-dialog -->
+        <!-- /.modal-content -->
     </div>
-    <!-- /.modal -->
-<?php } ?>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
 
 <script>
     $(document).ready(function() {
         setDataTables("#mapelTables");
     });
+
+    function setIdDelete(id, name) {
+        $('#linkDelete').attr('href', "<?= base_url('ruangan/deletesiswa') ?>" + "/" + id);
+        $('#lblNameDelete').text(name);
+    }
+
+    function removeIdDelete() {
+        $('#linkDelete').attr('href', "");
+    }
 </script>
 
 <?= $this->endSection() ?>

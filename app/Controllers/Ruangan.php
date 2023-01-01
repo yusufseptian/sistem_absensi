@@ -151,10 +151,24 @@ class Ruangan extends BaseController
         }
         return redirect()->to(base_url('ruangan') . "/" . strtolower(session('log_ruangan')['tipe_ujian']) . "/" . session('log_ruangan')['ruang_id']);
     }
-    public function deleteSiswa($ru_id)
+    public function deleteSiswa()
     {
-        $this->model_ruang_ujian->delete($ru_id);
-        session()->setFlashdata('delete', 'Data berhasil dihapus..!!');
+        // cek url data
+        if (!$this->request->uri->getSegment(3)) {
+            session()->setFlashdata('delete', 'Ada data yang salah. Peserta gagal dihapus');
+            return redirect()->to(base_url('ruangan') . "/" . strtolower(session('log_ruangan')['tipe_ujian']) . "/" . session('log_ruangan')['ruang_id']);
+        }
+        // cek avaiable data
+        if (is_null($this->model_ruang_ujian->find($this->request->uri->getSegment(3)))) {
+            session()->setFlashdata('delete', 'Ada data yang salah. Peserta gagal dihapus');
+            return redirect()->to(base_url('ruangan') . "/" . strtolower(session('log_ruangan')['tipe_ujian']) . "/" . session('log_ruangan')['ruang_id']);
+        }
+        // Delete data
+        if ($this->model_ruang_ujian->delete($this->request->uri->getSegment(3))) {
+            session()->setFlashdata('delete', 'Data berhasil dihapus..!!');
+        } else {
+            session()->setFlashdata('delete', 'Data gagal dihapus..!!');
+        }
         return redirect()->to(base_url('ruangan') . "/" . strtolower(session('log_ruangan')['tipe_ujian']) . "/" . session('log_ruangan')['ruang_id']);
     }
 }
