@@ -115,14 +115,14 @@ class Ruangan extends BaseController
     public function addPesertaUjian()
     {
         if (!$this->request->getPost('txtNIS') || empty(trim($this->request->getPost('txtNIS'))) || !session('log_ruangan')) {
-            session()->setFlashdata('someWrong', 'Data tidak sesuai');
+            session()->setFlashdata('delete', 'Data tidak sesuai');
             return $this->goBack();
         }
         $nis = $this->request->getPost('txtNIS');
         // get data by nis
         $dtSiswa = $this->db->table('tb_siswa')->where('siswa_nis', $nis)->get()->getResultArray();
         if (count($dtSiswa) != 1) {
-            session()->setFlashdata('someWrong', 'Data siswa tidak ditemukan. Penambahan siswa gagal');
+            session()->setFlashdata('delete', 'Data siswa tidak ditemukan. Penambahan siswa gagal');
             return $this->goBack();
         }
         $dtSiswa = $dtSiswa[0];
@@ -134,7 +134,7 @@ class Ruangan extends BaseController
         $cek->where('tipe_ujian', session('log_ruangan')['tipe_ujian']);
         $cek->where('id_th_ajaran', $dtTahunAjar['th_id']);
         if (count($cek->get()->getResultArray()) != 0) {
-            session()->setFlashdata('someWarning', 'Data siswa sudah ada di dalam ruangan');
+            session()->setFlashdata('edit', 'Data siswa sudah ada di dalam ruangan');
             return $this->goBack();
         }
         $data = [
@@ -145,10 +145,16 @@ class Ruangan extends BaseController
             'id_th_ajaran' => $dtTahunAjar['th_id']
         ];
         if ($this->model_ruang_ujian->insert($data)) {
-            session()->setFlashdata('someSuccess', 'Data siswa berhasil ditambahkan');
+            session()->setFlashdata('tambah', 'Data siswa berhasil ditambahkan');
         } else {
-            session()->setFlashdata('someWrong', 'Data siswa gagal ditambahkan karena kesalahan sistem!');
+            session()->setFlashdata('delete', 'Data siswa gagal ditambahkan karena kesalahan sistem!');
         }
+        return redirect()->to(base_url('ruangan') . "/" . strtolower(session('log_ruangan')['tipe_ujian']) . "/" . session('log_ruangan')['ruang_id']);
+    }
+    public function deleteSiswa($ru_id)
+    {
+        $this->model_ruang_ujian->delete($ru_id);
+        session()->setFlashdata('delete', 'Data berhasil dihapus..!!');
         return redirect()->to(base_url('ruangan') . "/" . strtolower(session('log_ruangan')['tipe_ujian']) . "/" . session('log_ruangan')['ruang_id']);
     }
 }

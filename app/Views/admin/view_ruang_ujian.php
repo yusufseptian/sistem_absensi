@@ -57,10 +57,8 @@
                                 <td><?= $value['siswa_nis'] ?></td>
                                 <td><?= $value['kelas_nama'] ?></td>
                                 <td><?= $value['siswa_nama'] ?></td>
-                                <td>
-                                    <button class="btn btn-xs btn-flat btn-warning" data-toggle="modal" data-target="#edit<?= $value['ru_id'] ?>">
-                                        <i class="fas fa-pen"></i>
-                                    </button>
+                                <td class="text-center">
+
                                     <button class="btn btn-xs btn-flat btn-danger" data-toggle="modal" data-target="#delete<?= $value['ru_id'] ?>">
                                         <i class="fas fa-trash"></i>
                                     </button>
@@ -98,6 +96,30 @@
         </div>
     </form>
 </div>
+<?php foreach ($ruang_ujian as $key => $value) { ?>
+    <div class="modal fade" id="delete<?= $value['ru_id'] ?>">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header bg-danger">
+                    <h4 class="modal-title">Hapus Banner</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Apakah Anda ingin menghapus <b><?= $value['siswa_nama'] ?></b>?
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">Tutup</button>
+                    <a href="<?= base_url('Ruangan/deletesiswa/' . $value['ru_id']) ?>" class="btn btn-danger btn-sm">Hapus</a>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <!-- /.modal -->
+<?php } ?>
 
 <script>
     $(document).ready(function() {
